@@ -1,0 +1,195 @@
+/* Guided Tour Styles */
+
+.tour-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.tour-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+}
+
+.tour-btn.subtle {
+    opacity: 0.7;
+    transform: scale(0.9);
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+.tour-btn.subtle:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.tour-tooltip {
+    position: fixed;
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1002;
+    max-width: 350px;
+    width: 90%;
+    animation: tooltipFadeIn 0.5s ease;
+}
+
+.tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+}
+
+.tooltip-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.step-counter {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.tooltip-content {
+    margin-bottom: 1.5rem;
+}
+
+.tooltip-content p {
+    color: #34495e;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.tooltip-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.tour-btn.primary {
+    background: #3498db;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tour-btn.secondary {
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tour-btn.primary:hover {
+    background: #2980b9;
+}
+
+.tour-btn.secondary:hover {
+    background: #bdc3c7;
+}
+
+.tour-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tour-highlight {
+    position: relative;
+    z-index: 1003;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.8), 0 0 0 8000px rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes tooltipFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.8), 0 0 0 8000px rgba(0, 0, 0, 0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(52, 152, 219, 0.5), 0 0 0 8000px rgba(0, 0, 0, 0.7); }
+    100% { box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.8), 0 0 0 8000px rgba(0, 0, 0, 0.7); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tour-tooltip {
+        max-width: 300px;
+    }
+    
+    .tooltip-actions {
+        flex-wrap: wrap;
+    }
+    
+    .tour-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .tour-tooltip {
+        background: #2c3e50;
+        border: 1px solid #34495e;
+    }
+    
+    .tooltip-header {
+        border-bottom-color: #34495e;
+    }
+    
+    .tooltip-header h3 {
+        color: #ecf0f1;
+    }
+    
+    .step-counter {
+        color: #bdc3c7;
+    }
+    
+    .tooltip-content p {
+        color: #ecf0f1;
+    }
+    
+    .tour-btn.secondary {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+    
+    .tour-btn.secondary:hover {
+        background: #2c3e50;
+    }
+}
