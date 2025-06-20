@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enneagram Quest - Discover Your Personality Type</title>
+    <meta name="description" content="An interactive adventure game to discover your Enneagram personality type through engaging scenarios">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Enneagram Quest</h1>
+        <p>Embark on an adventure to discover your true personality type</p>
+    </header>
+
+    <main id="game-container">
+        <section id="intro-screen" class="screen active" aria-live="polite">
+            <h2>Welcome, Adventurer!</h2>
+            <p>You find yourself at the entrance of an ancient temple, rumored to reveal one's true nature to those brave enough to enter. Your choices will shape your journey and reveal your Enneagram type.</p>
+            <button id="start-btn" class="primary-btn">Begin Your Quest</button>
+        </section>
+
+        <section id="game-screen" class="screen" aria-live="polite">
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+                <span id="progress-text" aria-live="polite">Question 1 of 12</span>
+            </div>
+            
+            <div id="scenario-content">
+                <h2 id="scenario-title"></h2>
+                <p id="scenario-text"></p>
+                <div id="choices-container" role="radiogroup" aria-labelledby="scenario-title">
+                </div>
+                <button id="next-btn" class="primary-btn" disabled>Continue</button>
+            </div>
+        </section>
+
+        <section id="result-screen" class="screen" aria-live="polite">
+            <h2>Your Enneagram Type Revealed!</h2>
+            <div id="result-content">
+                <div id="type-display">
+                    <h3 id="type-title"></h3>
+                    <p id="type-description"></p>
+                </div>
+                <div id="type-details">
+                    <h4>Core Motivation</h4>
+                    <p id="core-motivation"></p>
+                    <h4>Basic Fear</h4>
+                    <p id="basic-fear"></p>
+                    <h4>Key Strengths</h4>
+                    <ul id="strengths-list"></ul>
+                </div>
+                <button id="restart-btn" class="secondary-btn">Take Quest Again</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Enneagram Quest. Discover your inner self through adventure.</p>
+    </footer>
+
+    <script src="enneagram-data.js"></script>
+    <script src="achievements.js"></script>
+    <script src="game-enhanced.js"></script>
+</body>
+</html>
