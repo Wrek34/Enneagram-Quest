@@ -98,11 +98,7 @@ class DebugEnneagramQuestGame {
             });
         }
         
-        // Sound toggle
-        const soundBtn = document.getElementById('sound-toggle');
-        if (soundBtn) {
-            soundBtn.addEventListener('click', () => this.toggleSound());
-        }
+
         
         // Achievements button
         const achievementsBtn = document.getElementById('achievements-btn');
@@ -150,8 +146,8 @@ class DebugEnneagramQuestGame {
             this.displayScenario();
             
             // Play start sound
-            if (this.sounds && this.sounds.ambient) {
-                this.sounds.ambient();
+            if (this.sounds && this.sounds.select) {
+                this.sounds.select();
             }
             
         } catch (error) {
@@ -164,6 +160,12 @@ class DebugEnneagramQuestGame {
         console.log(`📖 Displaying scenario ${this.currentScenario + 1}`);
         
         try {
+            // Ensure scenarios are loaded
+            if (!this.selectedScenarios || this.selectedScenarios.length === 0) {
+                console.log('🔄 Reloading scenarios...');
+                this.selectedScenarios = this.selectDiverseScenarios(allScenarios, 16);
+            }
+            
             const scenario = this.selectedScenarios[this.currentScenario];
             
             if (!scenario) {
@@ -580,8 +582,7 @@ class DebugEnneagramQuestGame {
         this.sounds = {
             select: this.createSound(200, 0.1, 'sine'),
             correct: this.createSound(400, 0.2, 'triangle'),
-            levelUp: this.createSound([300, 400, 500], 0.3, 'square'),
-            ambient: this.createAmbientSound()
+            levelUp: this.createSound([300, 400, 500], 0.3, 'square')
         };
     }
 
@@ -619,29 +620,7 @@ class DebugEnneagramQuestGame {
         };
     }
 
-    createAmbientSound() {
-        return () => {
-            if (!this.soundEnabled) return;
-            
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.setValueAtTime(80, audioContext.currentTime);
-                oscillator.type = 'sine';
-                gainNode.gain.setValueAtTime(0.02, audioContext.currentTime);
-                
-                oscillator.start();
-                setTimeout(() => oscillator.stop(), 2000);
-            } catch (error) {
-                console.warn('⚠️ Ambient audio not supported:', error);
-            }
-        };
-    }
+
 
     createParticleSystem() {
         try {
@@ -693,14 +672,7 @@ class DebugEnneagramQuestGame {
         }
     }
 
-    toggleSound() {
-        this.soundEnabled = !this.soundEnabled;
-        const soundBtn = document.getElementById('sound-toggle');
-        if (soundBtn) {
-            soundBtn.textContent = this.soundEnabled ? '🔊' : '🔇';
-        }
-        console.log(`🔊 Sound ${this.soundEnabled ? 'enabled' : 'disabled'}`);
-    }
+
 
     showErrorMessage(message) {
         const errorDiv = document.createElement('div');
