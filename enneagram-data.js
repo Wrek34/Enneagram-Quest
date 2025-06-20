@@ -165,7 +165,7 @@ const scenarios = [
     },
     {
         title: "The Final Chamber",
-        text: "You reach the temple's heart where three pedestals hold different rewards. You can only choose one. Which calls to you?",
+        text: "You reach the temple's heart where nine pedestals hold different rewards. You can only choose one. Which calls to you most?",
         choices: [
             { text: "A scroll containing the ultimate truth about right and wrong", types: [1] },
             { text: "A crystal that shows you how to help others most effectively", types: [2] },

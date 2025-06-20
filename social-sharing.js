@@ -93,6 +93,10 @@ class SocialSharingSystem {
                     <span class="support-icon">⭐</span>
                     Star on GitHub
                 </button>
+                <button class="support-btn repo" onclick="socialSystem.viewRepository()">
+                    <span class="support-icon">📂</span>
+                    View Repository
+                </button>
                 <button class="support-btn feedback" onclick="socialSystem.leaveFeedback()">
                     <span class="support-icon">💬</span>
                     Leave Feedback
@@ -215,6 +219,12 @@ class SocialSharingSystem {
         const githubUrl = 'https://github.com/wrek34/Enneagram-Quest';
         window.open(githubUrl, '_blank');
         this.trackSupport('github');
+    }
+
+    viewRepository() {
+        const repoUrl = 'https://github.com/wrek34/Enneagram-Quest';
+        window.open(repoUrl, '_blank');
+        this.trackSupport('repository');
     }
 
     leaveFeedback() {
