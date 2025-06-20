@@ -31,8 +31,6 @@ An immersive, adventure-style personality assessment game that helps users disco
 - **Performance Optimization** - Adaptive quality and memory management
 
 ### 🎨 Immersive Audio & Visuals
-- **Professional Audio System** - Personality-based musical themes for each type
-- **Ambient Soundscapes** - Temple, forest, and mystical atmospheres
 - **Dynamic Backgrounds** - Ever-changing visual environments
 - **Weather Effects** - Rain, snow, sparkles, leaves, and mystical mist
 - **Advanced Particle System** - Interactive visual effects and celebrations

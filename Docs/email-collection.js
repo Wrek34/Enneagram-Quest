@@ -2,7 +2,7 @@
 class EmailCollectionSystem {
     constructor(game) {
         this.game = game;
-        this.apiEndpoint = 'https://formspree.io/f/YOUR_FORM_ID'; // Replace with your Formspree endpoint
+        this.apiEndpoint = 'https://formspree.io/f/xqabddqk';
         this.initializeEmailCollection();
     }
 
