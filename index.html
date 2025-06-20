@@ -30,13 +30,6 @@
     <link rel="stylesheet" href="Docs/email-collection-styles.css">
 </head>
 <body>
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-crystal">
-            <div class="crystal-ball-loader">🔮</div>
-            <div class="loading-text">Awakening the Crystal Ball...</div>
-        </div>
-    </div>
-    
     <header>
         <h1>Enneagram Quest</h1>
         <p>Embark on an adventure to discover your true personality type</p>
@@ -141,21 +134,5 @@
     <script src="Docs/smart-animations.js"></script>
     <script src="Docs/meaningful-avatar.js"></script>
     <script src="Docs/email-collection.js"></script>
-    
-    <script>
-        // Hide loading screen after everything loads
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.transition = 'opacity 0.5s ease';
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
-                }
-            }, 1000);
-        });
-    </script>
 </body>
 </html>

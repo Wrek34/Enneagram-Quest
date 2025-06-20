@@ -14,16 +14,23 @@ class PerformanceOptimizer {
     }
 
     addLoadingScreen() {
+        // Check if loading screen already exists
+        if (document.getElementById('loading-screen')) {
+            this.enhanceExistingLoadingScreen();
+            return;
+        }
+        
         const loadingScreen = document.createElement('div');
         loadingScreen.className = 'loading-screen';
+        loadingScreen.id = 'performance-loading';
         loadingScreen.innerHTML = `
             <div class="loading-content">
-                <div class="loading-logo">🏛️</div>
+                <div class="loading-logo">🔮</div>
                 <h2>Enneagram Quest</h2>
                 <div class="loading-bar">
                     <div class="loading-progress" id="loading-progress"></div>
                 </div>
-                <p class="loading-text" id="loading-text">Preparing your adventure...</p>
+                <p class="loading-text" id="loading-text">Awakening the Crystal Ball...</p>
             </div>
         `;
         
@@ -32,17 +39,24 @@ class PerformanceOptimizer {
         // Simulate loading progress
         this.simulateLoading();
     }
+    
+    enhanceExistingLoadingScreen() {
+        // Use existing loading screen and just simulate progress
+        setTimeout(() => {
+            this.simulateLoading();
+        }, 100);
+    }
 
     simulateLoading() {
         const progress = document.getElementById('loading-progress');
         const text = document.getElementById('loading-text');
         
         const steps = [
-            { percent: 20, text: 'Loading personality types...' },
-            { percent: 40, text: 'Preparing scenarios...' },
-            { percent: 60, text: 'Setting up audio system...' },
-            { percent: 80, text: 'Initializing game features...' },
-            { percent: 100, text: 'Ready to begin!' }
+            { percent: 20, text: 'Awakening crystal energies...' },
+            { percent: 40, text: 'Aligning personality centers...' },
+            { percent: 60, text: 'Preparing mystical insights...' },
+            { percent: 80, text: 'Activating crystal ball...' },
+            { percent: 100, text: 'Crystal ball awakened!' }
         ];
         
         let currentStep = 0;
@@ -66,15 +80,18 @@ class PerformanceOptimizer {
     }
 
     hideLoadingScreen() {
-        const loadingScreen = document.querySelector('.loading-screen');
-        if (loadingScreen) {
-            loadingScreen.style.animation = 'fadeOut 0.5s ease forwards';
-            setTimeout(() => {
-                if (loadingScreen.parentNode) {
-                    loadingScreen.parentNode.removeChild(loadingScreen);
-                }
-            }, 500);
-        }
+        const loadingScreens = document.querySelectorAll('.loading-screen, #loading-screen');
+        loadingScreens.forEach(loadingScreen => {
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    if (loadingScreen.parentNode) {
+                        loadingScreen.parentNode.removeChild(loadingScreen);
+                    }
+                }, 500);
+            }
+        });
     }
 
     optimizeImages() {
