@@ -1,0 +1,373 @@
+// Social sharing and support features
+class SocialSharingSystem {
+    constructor(game) {
+        this.game = game;
+        this.initializeSocialFeatures();
+    }
+
+    initializeSocialFeatures() {
+        this.addSocialButtons();
+        this.addSupportSection();
+        this.setupSharingMethods();
+    }
+
+    addSocialButtons() {
+        // Add social sharing to results screen
+        const originalShowResults = this.game.showResults.bind(this.game);
+        this.game.showResults = () => {
+            originalShowResults();
+            
+            setTimeout(() => {
+                this.createSocialSection();
+                this.createSupportSection();
+            }, 1000);
+        };
+    }
+
+    createSocialSection() {
+        const resultContent = document.getElementById('result-content');
+        if (!resultContent) return;
+
+        const socialSection = document.createElement('div');
+        socialSection.className = 'social-sharing-section';
+        socialSection.innerHTML = `
+            <div class="sharing-header">
+                <h4>🌟 Share Your Journey</h4>
+                <p>Let others discover their personality type too!</p>
+            </div>
+            <div class="social-buttons">
+                <button class="social-btn twitter" onclick="socialSystem.shareToTwitter()">
+                    <span class="social-icon">🐦</span>
+                    Share on Twitter
+                </button>
+                <button class="social-btn facebook" onclick="socialSystem.shareToFacebook()">
+                    <span class="social-icon">📘</span>
+                    Share on Facebook
+                </button>
+                <button class="social-btn linkedin" onclick="socialSystem.shareToLinkedIn()">
+                    <span class="social-icon">💼</span>
+                    Share on LinkedIn
+                </button>
+                <button class="social-btn copy-link" onclick="socialSystem.copyLink()">
+                    <span class="social-icon">🔗</span>
+                    Copy Link
+                </button>
+                <button class="social-btn email" onclick="socialSystem.shareViaEmail()">
+                    <span class="social-icon">📧</span>
+                    Share via Email
+                </button>
+            </div>
+            <div class="share-stats">
+                <p>Join thousands who've discovered their Enneagram type!</p>
+            </div>
+        `;
+
+        resultContent.appendChild(socialSection);
+    }
+
+    createSupportSection() {
+        const resultContent = document.getElementById('result-content');
+        if (!resultContent) return;
+
+        const supportSection = document.createElement('div');
+        supportSection.className = 'support-creator-section';
+        supportSection.innerHTML = `
+            <div class="support-header">
+                <h4>💝 Support the Creator</h4>
+                <p>Help us create more amazing personality tools!</p>
+            </div>
+            <div class="support-options">
+                <button class="support-btn coffee" onclick="socialSystem.buyMeCoffee()">
+                    <span class="support-icon">☕</span>
+                    Buy Me a Coffee
+                </button>
+                <button class="support-btn patreon" onclick="socialSystem.supportOnPatreon()">
+                    <span class="support-icon">🎨</span>
+                    Support on Patreon
+                </button>
+                <button class="support-btn github" onclick="socialSystem.starOnGitHub()">
+                    <span class="support-icon">⭐</span>
+                    Star on GitHub
+                </button>
+                <button class="support-btn feedback" onclick="socialSystem.leaveFeedback()">
+                    <span class="support-icon">💬</span>
+                    Leave Feedback
+                </button>
+            </div>
+            <div class="creator-info">
+                <p>Created with ❤️ by <strong>Enneagram and Beyond</strong></p>
+                <p>Follow us for more personality insights and tools!</p>
+                <div class="follow-buttons">
+                    <button class="follow-btn" onclick="socialSystem.followTwitter()">
+                        🐦 Follow on Twitter
+                    </button>
+                    <button class="follow-btn" onclick="socialSystem.followInstagram()">
+                        📸 Follow on Instagram
+                    </button>
+                </div>
+            </div>
+        `;
+
+        resultContent.appendChild(supportSection);
+    }
+
+    setupSharingMethods() {
+        window.socialSystem = this; // Make available globally for onclick handlers
+    }
+
+    shareToTwitter() {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const text = `I just discovered I'm ${typeData.title} in Enneagram Quest! 🏛️✨ This immersive personality game is incredible - complete with RPG elements, achievements, and beautiful audio! What's your Enneagram type?`;
+        const url = window.location.href;
+        const hashtags = 'EnneagramQuest,PersonalityTest,SelfDiscovery,Enneagram';
+        
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`;
+        window.open(twitterUrl, '_blank', 'width=600,height=400');
+        
+        this.trackShare('twitter');
+    }
+
+    shareToFacebook() {
+        const url = window.location.href;
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        window.open(facebookUrl, '_blank', 'width=600,height=400');
+        
+        this.trackShare('facebook');
+    }
+
+    shareToLinkedIn() {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const title = 'Enneagram Quest - Discover Your Personality Type';
+        const summary = `I discovered I'm ${typeData.title} through this amazing interactive personality assessment game!`;
+        const url = window.location.href;
+        
+        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
+        window.open(linkedInUrl, '_blank', 'width=600,height=400');
+        
+        this.trackShare('linkedin');
+    }
+
+    async copyLink() {
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            this.showNotification('Link copied to clipboard! 📋', 'success');
+        } catch (error) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = window.location.href;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            this.showNotification('Link copied to clipboard! 📋', 'success');
+        }
+        
+        this.trackShare('copy');
+    }
+
+    shareViaEmail() {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const subject = 'Check out this amazing Enneagram personality game!';
+        const body = `Hi!\n\nI just took this incredible Enneagram Quest and discovered I'm ${typeData.title}! 🎭\n\nIt's not just a quiz - it's a full adventure game with:\n• RPG-style progression and achievements\n• Beautiful audio and visual effects\n• Immersive storytelling\n• Character customization\n\nYou should definitely try it: ${window.location.href}\n\nLet me know what personality type you get!\n\nBest regards`;
+        
+        const emailUrl = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = emailUrl;
+        
+        this.trackShare('email');
+    }
+
+    // Support methods
+    buyMeCoffee() {
+        // Replace with actual Buy Me a Coffee link
+        const coffeeUrl = 'https://buymeacoffee.com/enneagramandbeyond';
+        window.open(coffeeUrl, '_blank');
+        this.trackSupport('coffee');
+    }
+
+    supportOnPatreon() {
+        // Replace with actual Patreon link
+        const patreonUrl = 'https://patreon.com/enneagramandbeyond';
+        window.open(patreonUrl, '_blank');
+        this.trackSupport('patreon');
+    }
+
+    starOnGitHub() {
+        // Replace with actual GitHub repository
+        const githubUrl = 'https://github.com/your-username/enneagram-quest';
+        window.open(githubUrl, '_blank');
+        this.trackSupport('github');
+    }
+
+    leaveFeedback() {
+        const feedbackModal = document.createElement('div');
+        feedbackModal.className = 'feedback-modal';
+        feedbackModal.innerHTML = `
+            <div class="feedback-content">
+                <h3>💬 Share Your Feedback</h3>
+                <p>Help us improve Enneagram Quest!</p>
+                <div class="feedback-options">
+                    <button class="feedback-option" onclick="socialSystem.openFeedbackForm('bug')">
+                        🐛 Report a Bug
+                    </button>
+                    <button class="feedback-option" onclick="socialSystem.openFeedbackForm('feature')">
+                        💡 Suggest a Feature
+                    </button>
+                    <button class="feedback-option" onclick="socialSystem.openFeedbackForm('general')">
+                        💭 General Feedback
+                    </button>
+                    <button class="feedback-option" onclick="socialSystem.rateGame()">
+                        ⭐ Rate the Game
+                    </button>
+                </div>
+                <button class="close-feedback" onclick="socialSystem.closeFeedbackModal()">Close</button>
+            </div>
+        `;
+        
+        document.body.appendChild(feedbackModal);
+        this.currentFeedbackModal = feedbackModal;
+    }
+
+    openFeedbackForm(type) {
+        const forms = {
+            bug: 'https://github.com/your-username/enneagram-quest/issues/new?template=bug_report.md',
+            feature: 'https://github.com/your-username/enneagram-quest/issues/new?template=feature_request.md',
+            general: 'mailto:feedback@enneagramandbeyond.com?subject=Enneagram Quest Feedback'
+        };
+        
+        if (forms[type]) {
+            window.open(forms[type], '_blank');
+        }
+        
+        this.closeFeedbackModal();
+        this.trackSupport('feedback');
+    }
+
+    rateGame() {
+        const ratingModal = document.createElement('div');
+        ratingModal.className = 'rating-modal';
+        ratingModal.innerHTML = `
+            <div class="rating-content">
+                <h3>⭐ Rate Enneagram Quest</h3>
+                <p>How would you rate your experience?</p>
+                <div class="star-rating">
+                    ${[1,2,3,4,5].map(i => `<span class="star" data-rating="${i}">⭐</span>`).join('')}
+                </div>
+                <textarea id="rating-comment" placeholder="Tell us what you loved or how we can improve..."></textarea>
+                <div class="rating-buttons">
+                    <button onclick="socialSystem.submitRating()">Submit Rating</button>
+                    <button onclick="socialSystem.closeRatingModal()">Cancel</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(ratingModal);
+        this.currentRatingModal = ratingModal;
+        
+        // Add star rating functionality
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', (e) => {
+                const rating = parseInt(e.target.dataset.rating);
+                this.selectedRating = rating;
+                this.updateStarDisplay(rating);
+            });
+        });
+        
+        this.closeFeedbackModal();
+    }
+
+    updateStarDisplay(rating) {
+        document.querySelectorAll('.star').forEach((star, index) => {
+            star.style.opacity = index < rating ? '1' : '0.3';
+        });
+    }
+
+    submitRating() {
+        const comment = document.getElementById('rating-comment').value;
+        const rating = this.selectedRating || 5;
+        
+        // Here you would typically send to your analytics service
+        console.log('Rating submitted:', { rating, comment });
+        
+        this.showNotification('Thank you for your rating! 🌟', 'success');
+        this.closeRatingModal();
+        this.trackSupport('rating');
+    }
+
+    followTwitter() {
+        window.open('https://twitter.com/enneagrambeyond', '_blank');
+        this.trackSupport('follow-twitter');
+    }
+
+    followInstagram() {
+        window.open('https://instagram.com/enneagramandbeyond', '_blank');
+        this.trackSupport('follow-instagram');
+    }
+
+    closeFeedbackModal() {
+        if (this.currentFeedbackModal) {
+            document.body.removeChild(this.currentFeedbackModal);
+            this.currentFeedbackModal = null;
+        }
+    }
+
+    closeRatingModal() {
+        if (this.currentRatingModal) {
+            document.body.removeChild(this.currentRatingModal);
+            this.currentRatingModal = null;
+        }
+    }
+
+    // Analytics tracking
+    trackShare(platform) {
+        console.log(`Shared on ${platform}`);
+        // Add your analytics tracking here
+    }
+
+    trackSupport(action) {
+        console.log(`Support action: ${action}`);
+        // Add your analytics tracking here
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `share-notification ${type}`;
+        notification.textContent = message;
+        
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            z-index: 1001;
+            animation: slideInRight 0.3s ease, slideOutRight 0.3s ease 2.7s forwards;
+            background: ${type === 'success' ? '#27ae60' : '#3498db'};
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 3000);
+    }
+}
+
+// Initialize social sharing system
+document.addEventListener('DOMContentLoaded', () => {
+    const initSocial = () => {
+        if (window.game) {
+            new SocialSharingSystem(window.game);
+            console.log('📱 Social sharing system loaded');
+        } else {
+            setTimeout(initSocial, 100);
+        }
+    };
+    initSocial();
+});
