@@ -330,16 +330,17 @@ class AdvancedGameFeatures {
     addPersonalityCompass() {
         this.createCompass = () => {
             const compass = document.createElement('div');
-            compass.className = 'personality-compass';
+            compass.className = 'personality-compass crystal-ball';
             compass.innerHTML = `
-                <div class="compass-center">🧭</div>
+                <div class="crystal-center">🔮</div>
+                <div class="crystal-glow"></div>
                 <div class="compass-ring">
                     <div class="compass-point north" data-types="1,8">Action</div>
                     <div class="compass-point east" data-types="3,7">Success</div>
                     <div class="compass-point south" data-types="2,9">Heart</div>
                     <div class="compass-point west" data-types="4,5">Mind</div>
                 </div>
-                <div class="compass-needle"></div>
+                <div class="crystal-energy"></div>
             `;
 
             document.getElementById('game-screen').appendChild(compass);
@@ -353,16 +354,17 @@ class AdvancedGameFeatures {
             const mindScore = (scores[4] || 0) + (scores[5] || 0);
 
             const maxScore = Math.max(actionScore, successScore, heartScore, mindScore);
-            let direction = 0;
+            let energyColor = '#9b59b6';
 
-            if (maxScore === actionScore) direction = 0;
-            else if (maxScore === successScore) direction = 90;
-            else if (maxScore === heartScore) direction = 180;
-            else if (maxScore === mindScore) direction = 270;
+            if (maxScore === actionScore) energyColor = '#e74c3c';
+            else if (maxScore === successScore) energyColor = '#f39c12';
+            else if (maxScore === heartScore) energyColor = '#e91e63';
+            else if (maxScore === mindScore) energyColor = '#3498db';
 
-            const needle = document.querySelector('.compass-needle');
-            if (needle) {
-                needle.style.transform = `rotate(${direction}deg)`;
+            const energy = document.querySelector('.crystal-energy');
+            if (energy) {
+                energy.style.background = `radial-gradient(circle, ${energyColor}40, transparent)`;
+                energy.style.animation = 'crystalPulse 2s ease-in-out infinite';
             }
         };
 

@@ -307,28 +307,46 @@
     100% { transform: translateY(-50px) translateX(50px); opacity: 0; }
 }
 
-/* Personality Compass */
-.personality-compass {
+/* Magic Crystal Ball */
+.personality-compass.crystal-ball {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 120px;
     height: 120px;
-    background: rgba(255, 255, 255, 0.95);
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(138,43,226,0.3), rgba(75,0,130,0.6));
     border-radius: 50%;
-    border: 4px solid #2c3e50;
+    border: 3px solid #4b0082;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(75, 0, 130, 0.4), inset 0 5px 15px rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
+    animation: crystalFloat 3s ease-in-out infinite;
 }
 
-.compass-center {
-    font-size: 2rem;
+.crystal-center {
+    font-size: 2.5rem;
     z-index: 3;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: crystalGlow 2s ease-in-out infinite alternate;
+}
+
+.crystal-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,43,226,0.3), transparent);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+.crystal-energy {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .compass-ring {
@@ -374,30 +392,24 @@
     transform: translateY(-50%);
 }
 
-.compass-needle {
-    position: absolute;
-    width: 2px;
-    height: 40px;
-    background: #e74c3c;
-    top: 50%;
-    left: 50%;
-    transform-origin: bottom center;
-    transform: translateX(-50%) translateY(-100%);
-    transition: transform 1s ease;
-    z-index: 2;
+@keyframes crystalFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
 }
 
-.compass-needle::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 8px solid #e74c3c;
+@keyframes crystalGlow {
+    0% { filter: brightness(1) drop-shadow(0 0 5px rgba(138,43,226,0.5)); }
+    100% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(138,43,226,0.8)); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes crystalPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
 }
 
 /* Floating Messages */
