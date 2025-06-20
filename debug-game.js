@@ -214,18 +214,36 @@ class DebugEnneagramQuestGame {
         
         container.innerHTML = '';
         
-        choices.forEach((choice, index) => {
+        // Randomize choice order to prevent predictability
+        const shuffledChoices = choices.map((choice, originalIndex) => ({
+            ...choice,
+            originalIndex
+        })).sort(() => Math.random() - 0.5);
+        
+        shuffledChoices.forEach((choice, displayIndex) => {
             const button = document.createElement('button');
             button.className = 'choice';
             button.textContent = choice.text;
-            button.setAttribute('data-choice-index', index);
+            button.setAttribute('data-choice-index', choice.originalIndex);
             button.setAttribute('role', 'radio');
             button.setAttribute('aria-checked', 'false');
             button.setAttribute('tabindex', '0');
+            
+            // Add staggered animation
+            button.style.opacity = '0';
+            button.style.transform = 'translateY(20px)';
+            button.style.transition = 'all 0.5s ease';
+            
             container.appendChild(button);
+            
+            // Animate in with delay
+            setTimeout(() => {
+                button.style.opacity = '1';
+                button.style.transform = 'translateY(0)';
+            }, displayIndex * 150 + 200);
         });
         
-        console.log(`✅ Created ${choices.length} choice buttons`);
+        console.log(`✅ Created ${choices.length} randomized choice buttons`);
     }
 
     addCharacterSprite() {

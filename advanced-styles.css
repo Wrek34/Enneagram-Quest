@@ -1,0 +1,492 @@
+/* Advanced features styling */
+
+/* Customization Panel */
+.customization-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 2px solid rgba(52, 152, 219, 0.3);
+    animation: slideInUp 0.8s ease-out;
+}
+
+.customization-panel h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.avatar-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.option-group label {
+    display: block;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+}
+
+.option-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.color-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+.color-btn.selected {
+    border-color: #2c3e50;
+    box-shadow: 0 0 15px rgba(44, 62, 80, 0.5);
+}
+
+#apply-customization {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#apply-customization:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Avatar Styles */
+.avatar-sprite.mystical {
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.avatar-sprite.warrior {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    border-radius: 20%;
+}
+
+.avatar-sprite.scholar {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border-radius: 15px;
+}
+
+.avatar-sprite.explorer {
+    background: linear-gradient(45deg, #27ae60, #229954);
+    border-radius: 50% 20% 50% 20%;
+}
+
+/* Mood Display */
+.mood-display {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.5s ease;
+    margin-left: 1rem;
+}
+
+.mood-display.curious {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.mood-display.confident {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.mood-display.thoughtful {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+}
+
+.mood-display.adventurous {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+}
+
+.mood-display.peaceful {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+}
+
+/* Quest Journal */
+.journal-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1003;
+    animation: fadeIn 0.3s ease;
+}
+
+.journal-content {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.journal-content h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.journal-entries {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.journal-entry {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-num {
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+}
+
+.scenario-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.choice-made {
+    color: #34495e;
+    font-style: italic;
+}
+
+.close-journal {
+    width: 100%;
+    padding: 1rem;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Weather Effects */
+.weather-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.weather-particle {
+    position: absolute;
+    pointer-events: none;
+}
+
+.rain-particle {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #74b9ff);
+    animation: rainFall linear infinite;
+}
+
+.snow-particle {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: snowFall linear infinite;
+}
+
+.sparkles-particle {
+    width: 6px;
+    height: 6px;
+    background: #f1c40f;
+    border-radius: 50%;
+    animation: sparkle linear infinite;
+}
+
+.leaves-particle {
+    width: 12px;
+    height: 12px;
+    background: #27ae60;
+    border-radius: 50% 0;
+    animation: leafFall linear infinite;
+}
+
+.mist-particle {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+    border-radius: 50%;
+    animation: mistFloat linear infinite;
+}
+
+@keyframes rainFall {
+    to { transform: translateY(100vh); }
+}
+
+@keyframes snowFall {
+    to { transform: translateY(100vh) rotate(360deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+    50% { opacity: 1; transform: translateY(50vh) scale(1); }
+    100% { transform: translateY(100vh) scale(0.5); }
+}
+
+@keyframes leafFall {
+    to { transform: translateY(100vh) rotate(720deg); }
+}
+
+@keyframes mistFloat {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-50px) translateX(50px); opacity: 0; }
+}
+
+/* Personality Compass */
+.personality-compass {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    border: 3px solid #34495e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.compass-center {
+    font-size: 2rem;
+    z-index: 3;
+}
+
+.compass-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.compass-point {
+    position: absolute;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.compass-point.north {
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.compass-point.east {
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.compass-point.south {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.compass-point.west {
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.compass-needle {
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: #e74c3c;
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) translateY(-100%);
+    transition: transform 1s ease;
+    z-index: 2;
+}
+
+.compass-needle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 8px solid #e74c3c;
+}
+
+/* Floating Messages */
+.floating-message {
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes floatMessage {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+/* Staggered Choice Animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    .customization-panel {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .avatar-options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .personality-compass {
+        width: 80px;
+        height: 80px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .compass-center {
+        font-size: 1.5rem;
+    }
+    
+    .compass-point {
+        font-size: 0.6rem;
+    }
+    
+    .compass-needle {
+        height: 25px;
+    }
+    
+    .journal-content {
+        margin: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .floating-message {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    .customization-panel {
+        background: rgba(44, 62, 80, 0.95);
+        color: #ecf0f1;
+    }
+    
+    .journal-content {
+        background: #2c3e50;
+        color: #ecf0f1;
+    }
+    
+    .journal-entry {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+    
+    .personality-compass {
+        background: rgba(44, 62, 80, 0.9);
+        color: #ecf0f1;
+    }
+}
