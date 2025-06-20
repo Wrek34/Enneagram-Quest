@@ -24,6 +24,36 @@
         </section>
 
         <section id="game-screen" class="screen" aria-live="polite">
+            <div id="player-hud">
+                <div class="hud-section">
+                    <div class="player-avatar" id="player-avatar">
+                        <div class="avatar-sprite"></div>
+                        <div class="level-badge">Lv.1</div>
+                    </div>
+                </div>
+                <div class="hud-section">
+                    <div class="stat-bar">
+                        <label>Wisdom</label>
+                        <div class="bar"><div class="fill wisdom-fill"></div></div>
+                    </div>
+                    <div class="stat-bar">
+                        <label>Courage</label>
+                        <div class="bar"><div class="fill courage-fill"></div></div>
+                    </div>
+                    <div class="stat-bar">
+                        <label>Compassion</label>
+                        <div class="bar"><div class="fill compassion-fill"></div></div>
+                    </div>
+                </div>
+                <div class="hud-section">
+                    <button id="sound-toggle" class="hud-btn">🔊</button>
+                    <button id="achievements-btn" class="hud-btn">🏆</button>
+                    <div id="inventory-display">
+                        <span class="inventory-count">Items: 0</span>
+                    </div>
+                </div>
+            </div>
+            
             <div class="progress-bar">
                 <div id="progress-fill"></div>
                 <span id="progress-text" aria-live="polite">Question 1 of 12</span>
@@ -65,6 +95,7 @@
     <script src="enneagram-data.js"></script>
     <script src="achievements.js"></script>
     <script src="enhanced-features.js"></script>
-    <script src="game-enhanced.js"></script>
+    <script src="debug-game.js"></script>
+    <script src="enhanced-experience.js"></script>
 </body>
 </html>
