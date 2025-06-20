@@ -10,7 +10,7 @@ class EnneagramQuestGame extends EnneagramQuest {
             experience: 0
         };
         this.inventory = [];
-        this.achievements = [];
+        this.achievements = new AchievementSystem(this);
         this.soundEnabled = true;
         
         this.initializeGameComponents();
@@ -50,6 +50,7 @@ class EnneagramQuestGame extends EnneagramQuest {
                 </div>
                 <div class="hud-section">
                     <button id="sound-toggle" class="hud-btn">🔊</button>
+                    <button id="achievements-btn" class="hud-btn">🏆</button>
                     <div id="inventory-display">
                         <span class="inventory-count">Items: 0</span>
                     </div>
@@ -59,6 +60,7 @@ class EnneagramQuestGame extends EnneagramQuest {
         gameScreen.insertAdjacentHTML('afterbegin', hudHTML);
         
         document.getElementById('sound-toggle').addEventListener('click', () => this.toggleSound());
+        document.getElementById('achievements-btn').addEventListener('click', () => this.achievements.displayAchievements());
     }
 
     createSoundSystem() {
@@ -195,6 +197,13 @@ class EnneagramQuestGame extends EnneagramQuest {
         this.sounds.select();
         this.updatePlayerStats();
         this.addChoiceEffect(choiceElement);
+        
+        // Check achievements
+        if (this.currentScenario === 0) {
+            this.achievements.checkAchievement('first_choice');
+        }
+        this.achievements.checkAchievement('stats');
+        this.achievements.checkAchievement('items');
     }
 
     updatePlayerStats() {
@@ -238,6 +247,9 @@ class EnneagramQuestGame extends EnneagramQuest {
         
         // Update avatar
         document.querySelector('.level-badge').textContent = `Lv.${this.playerStats.level}`;
+        
+        // Check level achievement
+        this.achievements.checkAchievement('level');
     }
 
     addInventoryItem() {
@@ -328,6 +340,11 @@ class EnneagramQuestGame extends EnneagramQuest {
 
     showResults() {
         super.showResults();
+        
+        // Check final achievements
+        this.achievements.checkAchievement('quest_complete');
+        const dominantType = this.calculateDominantType();
+        this.achievements.checkAchievement('personality', dominantType);
         
         // Add final game stats
         const resultContent = document.getElementById('result-content');
