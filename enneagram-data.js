@@ -242,5 +242,7 @@ const bonusScenarios = [
     }
 ];
 
-// Combine all scenarios
-const allScenarios = [...scenarios, ...bonusScenarios];
+// Import enhanced scenarios if available
+let allScenarios = [...scenarios, ...bonusScenarios];
+
+// This will be extended by enhanced-scenarios.js

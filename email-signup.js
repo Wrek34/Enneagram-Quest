@@ -107,8 +107,9 @@ class EmailSignupSystem {
             return;
         }
 
-        // Store email locally for now (you can integrate with your email service)
+        // Store email and send results
         this.storeEmail(email);
+        this.sendResultsToEmail(email);
         
         // Show success message
         this.showSignupSuccess(email);
@@ -133,6 +134,65 @@ class EmailSignupSystem {
             });
             localStorage.setItem('enneagram-emails', JSON.stringify(emails));
         }
+    }
+
+    sendResultsToEmail(email) {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        // Create email content
+        const subject = `Your Enneagram Quest Results: ${typeData.title}`;
+        const body = this.createEmailBody(typeData, wingText, wingInfo);
+        
+        // For now, create a mailto link (in production, you'd use an email service)
+        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // Store the results for potential future email service integration
+        this.storeResultsForEmail(email, typeData, wingText, wingInfo);
+        
+        console.log('Results prepared for email:', { email, type: wingText });
+    }
+
+    createEmailBody(typeData, wingText, wingInfo) {
+        return `🏛️ Your Enneagram Quest Results\n\n` +
+               `Congratulations! You've completed your personality adventure and discovered you are:\n\n` +
+               `${typeData.title} (Type ${wingText})\n\n` +
+               `DESCRIPTION:\n${typeData.description}\n\n` +
+               `CORE MOTIVATION:\n${typeData.coreMotivation}\n\n` +
+               `BASIC FEAR:\n${typeData.basicFear}\n\n` +
+               `KEY STRENGTHS:\n${typeData.strengths.map(s => `• ${s}`).join('\n')}\n\n` +
+               (wingInfo && wingInfo.dominantWing ? 
+                `WING INFLUENCE:\nYour ${wingInfo.dominantWing} wing adds ${wingInfo.wingStrength} influence to your core type.\n\n` : '') +
+               `🌟 NEXT STEPS:\n` +
+               `• Explore your type further at https://msha.ke/kaciwieczorek\n` +
+               `• Share your results with friends: https://wrek34.github.io/Enneagram-Quest/\n` +
+               `• Book a consultation for deeper insights\n\n` +
+               `Thank you for taking the Enneagram Quest!\n\n` +
+               `With love,\nThe Enneagram and Beyond Team`;
+    }
+
+    storeResultsForEmail(email, typeData, wingText, wingInfo) {
+        const results = {
+            email: email,
+            timestamp: new Date().toISOString(),
+            type: wingText,
+            typeData: typeData,
+            wingInfo: wingInfo,
+            gameStats: {
+                level: this.game.playerStats?.level || 1,
+                wisdom: this.game.playerStats?.wisdom || 0,
+                courage: this.game.playerStats?.courage || 0,
+                compassion: this.game.playerStats?.compassion || 0,
+                inventory: this.game.inventory || []
+            }
+        };
+        
+        // Store for potential email service integration
+        const emailResults = JSON.parse(localStorage.getItem('enneagram-email-results') || '[]');
+        emailResults.push(results);
+        localStorage.setItem('enneagram-email-results', JSON.stringify(emailResults));
     }
 
     showSignupSuccess(email) {
