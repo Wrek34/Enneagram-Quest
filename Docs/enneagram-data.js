@@ -100,7 +100,7 @@ const scenarios = [
             { text: "Worry about everyone's safety and suggest leaving", types: [2, 6] },
             { text: "Quickly secure the most valuable items before anyone changes their mind", types: [3, 7] },
             { text: "Feel conflicted about disturbing something so beautiful and ancient", types: [4, 9] },
-            { text: "Analyze the trap mechanism to understand how it works", types: [5] },
+            { text: "Carefully analyze the trap mechanism to understand how it works", types: [5] },
             { text: "Take charge and make the decision for everyone", types: [8] }
         ]
     },
@@ -111,7 +111,7 @@ const scenarios = [
             { text: "Making a terrible mistake that hurts others", types: [1] },
             { text: "Being alone and unloved by everyone", types: [2] },
             { text: "Failing publicly and being seen as worthless", types: [3] },
-            { text: "Being ordinary and having no special identity", types: [4] },
+            { text: "Being ordinary and having no unique identity or significance", types: [4] },
             { text: "Being overwhelmed and unable to cope", types: [5] },
             { text: "Being abandoned without support or guidance", types: [6] },
             { text: "Being trapped in pain with no escape", types: [7] },
@@ -143,7 +143,7 @@ const scenarios = [
             { text: "Take leadership and motivate everyone toward the goal", types: [3] },
             { text: "Express your feelings about the situation honestly", types: [4] },
             { text: "Withdraw to think through possible solutions alone", types: [5] },
-            { text: "Seek consensus and make sure everyone feels heard", types: [6, 9] },
+            { text: "Seek group consensus and ensure everyone feels heard", types: [6, 9] },
             { text: "Suggest a fun activity to lighten the mood", types: [7] },
             { text: "Confront the problems directly and decisively", types: [8] }
         ]
@@ -175,7 +175,7 @@ const scenarios = [
             { text: "A shield that provides eternal security and protection", types: [6] },
             { text: "A key that opens doors to infinite adventures", types: [7] },
             { text: "A sword that grants unshakeable personal power", types: [8] },
-            { text: "A dove that brings lasting peace to all conflicts", types: [9] }
+            { text: "A dove that brings lasting peace and harmony to all conflicts", types: [9] }
         ]
     }
 ];

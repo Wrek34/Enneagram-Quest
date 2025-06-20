@@ -32,8 +32,9 @@ class DebugEnneagramQuestGame {
             // Check if required elements exist
             this.checkRequiredElements();
             
-            // Select scenarios
-            this.selectedScenarios = this.selectDiverseScenarios(allScenarios, 12);
+            // Select scenarios - use all 16 questions
+            this.selectedScenarios = this.selectDiverseScenarios(allScenarios, 16);
+            this.totalScenarios = 16;
             console.log(`📚 Selected ${this.selectedScenarios.length} scenarios`);
             
             // Initialize systems
@@ -557,7 +558,8 @@ class DebugEnneagramQuestGame {
         
         this.currentScenario = 0;
         this.typeScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 };
-        this.selectedScenarios = this.selectDiverseScenarios(allScenarios, 12);
+        this.selectedScenarios = this.selectDiverseScenarios(allScenarios, 16);
+        this.totalScenarios = 16;
         this.currentChoice = null;
         
         this.playerStats = {

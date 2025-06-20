@@ -1,0 +1,383 @@
+/* Enhanced Styles V2 - Refined visual improvements */
+
+/* Adaptive Insights Styles */
+.personality-insight {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 350px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    z-index: 1000;
+    animation: slideInRight 0.5s ease;
+}
+
+.insight-content {
+    padding: 1.5rem;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.8rem;
+}
+
+.insight-header h4 {
+    margin: 0;
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.insight-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.insight-header button:hover {
+    opacity: 1;
+}
+
+.insight-message {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+.growth-tip {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Recommendations Section */
+.recommendations-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rec-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.rec-header h4 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.rec-header p {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.rec-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid;
+}
+
+.rec-card.books {
+    border-top-color: #3498db;
+}
+
+.rec-card.practices {
+    border-top-color: #27ae60;
+}
+
+.rec-card.careers {
+    border-top-color: #f39c12;
+}
+
+.rec-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.rec-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rec-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+    color: #495057;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.rec-card li:last-child {
+    border-bottom: none;
+}
+
+.rec-card.books li::before {
+    content: "📖";
+    position: absolute;
+    left: 0;
+}
+
+.rec-card.practices li::before {
+    content: "🌱";
+    position: absolute;
+    left: 0;
+}
+
+.rec-card.careers li::before {
+    content: "💼";
+    position: absolute;
+    left: 0;
+}
+
+/* Growth Progress */
+.growth-progress {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+
+.progress-header h4 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-header p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Smart Animation Styles */
+[data-animation-level="minimal"] * {
+    animation: none !important;
+    transition: none !important;
+}
+
+[data-animation-level="moderate"] * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+}
+
+.celebration-particle {
+    animation: particleFade 0.8s ease-out forwards;
+}
+
+@keyframes particleFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Enhanced Choice Styles */
+.choice {
+    position: relative;
+    overflow: hidden;
+}
+
+.choice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.choice:hover::before {
+    left: 100%;
+}
+
+.choice.selected {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+}
+
+/* Enhanced Progress Bar */
+.quest-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.quest-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%);
+    background-size: 20px 20px;
+    animation: progressPattern 2s linear infinite;
+}
+
+@keyframes progressPattern {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 0; }
+}
+
+/* Enhanced Social Buttons */
+.social-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.social-btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .personality-insight {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .rec-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-stats {
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    .recommendations-section {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+    
+    .rec-header h4 {
+        color: #ecf0f1;
+    }
+    
+    .rec-header p {
+        color: #bdc3c7;
+    }
+    
+    .rec-card {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+    
+    .rec-card h5 {
+        color: #ecf0f1;
+    }
+    
+    .rec-card li {
+        color: #bdc3c7;
+        border-bottom-color: #4a5f7a;
+    }
+}
+
+/* Performance Optimizations */
+.choice, .social-btn, .progress-fill {
+    will-change: transform;
+}
+
+.personality-insight {
+    will-change: transform, opacity;
+}
+
+/* Accessibility Improvements */
+.choice:focus-visible {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+.social-btn:focus-visible {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .choice::before,
+    .quest-progress::before,
+    .social-btn::after {
+        display: none;
+    }
+    
+    .celebration-particle {
+        display: none;
+    }
+}

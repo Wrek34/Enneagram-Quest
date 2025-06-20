@@ -3,7 +3,8 @@
 An immersive, adventure-style personality assessment game that helps users discover their Enneagram type through engaging scenarios, RPG-style gameplay, and cutting-edge interactive features.
 
 ![Enneagram Quest Banner](https://img.shields.io/badge/Enneagram-Quest-purple?style=for-the-badge&logo=gamepad)
-![Features](https://img.shields.io/badge/Features-50+-brightgreen?style=for-the-badge)
+![Features](https://img.shields.io/badge/Features-75+-brightgreen?style=for-the-badge)
+![Questions](https://img.shields.io/badge/Questions-16-blue?style=for-the-badge)
 ![Audio](https://img.shields.io/badge/Audio-Immersive-blue?style=for-the-badge)
 ![Customization](https://img.shields.io/badge/Avatar-Customizable-orange?style=for-the-badge)
 
@@ -14,20 +15,20 @@ An immersive, adventure-style personality assessment game that helps users disco
 ## ✨ Revolutionary Features
 
 ### 🎯 Core Gameplay
-- **12+ Dynamic Scenarios** - Adventure-based questions with randomized order
+- **16 Dynamic Scenarios** - Adventure-based questions with randomized order
 - **9 Enneagram Types** - Comprehensive personality assessment with detailed insights
 - **Smart Scoring System** - Advanced algorithm preventing predictable patterns
-- **Multiple Difficulty Modes** - Easy (8 questions), Normal (12), Hard (16)
+- **Philosophical Questions** - Deep ethical dilemmas for accurate typing
 - **Quest Journal** - Track your entire journey with timestamped entries
-- **Personality Compass** - Real-time visual guide showing your type direction
+- **Progress Tracking** - Real-time visual progress indicator
 
 ### 🎮 Advanced RPG Elements
 - **Character Progression** - Multi-level system with experience points
 - **Stat Development** - Wisdom, Courage, and Compassion attributes
 - **Dynamic Inventory** - Collectible magical items throughout your quest
 - **Achievement System** - 15+ unlockable achievements with persistent tracking
-- **Mood System** - Emotional state tracking that affects your experience
-- **Save/Load System** - Continue your quest anytime
+- **Enhanced Save System** - Multiple save slots with export/import
+- **Performance Optimization** - Adaptive quality and memory management
 
 ### 🎨 Immersive Audio & Visuals
 - **Professional Audio System** - Personality-based musical themes for each type
@@ -47,19 +48,19 @@ An immersive, adventure-style personality assessment game that helps users disco
 - **Randomization** - One-click random avatar generation
 
 ### 🌟 Social & Sharing
-- **Multi-platform Sharing** - Twitter, Facebook, LinkedIn, Email
+- **Multi-platform Sharing** - X (Twitter), Facebook, LinkedIn, TikTok, Email
+- **Professional Icons** - Brand-accurate SVG icons with proper colors
+- **Email Results** - Automatic delivery of personality analysis to inbox
 - **Creator Support** - Buy Me a Coffee, Patreon, GitHub integration
 - **Feedback System** - Built-in rating and review system
-- **Social Follow** - Connect on multiple platforms
-- **Results Sharing** - Beautiful, shareable personality results
 
 ### ♿ Accessibility Excellence
 - **Full Keyboard Navigation** - Complete game playable without mouse
 - **Screen Reader Support** - ARIA labels and live regions
-- **High Contrast Focus** - Clear visual indicators for navigation
+- **Guided Tour System** - Interactive tutorial for new users
+- **Skip Links** - Quick navigation to main content
 - **Reduced Motion Support** - Respects user motion preferences
-- **Volume Controls** - Adjustable audio with visual slider
-- **Dark Mode Support** - Automatic theme detection
+- **Volume Controls** - Functional audio control with persistence
 
 ## 🚀 Quick Start Guide
 
@@ -115,26 +116,26 @@ php -S localhost:8000
 
 ```
 enneagram-quest/
-├── index.html                 # Main HTML file with all components
-├── styles.css                 # Base styles and layout
-├── game-styles.css            # Game-specific visual enhancements
-├── achievement-styles.css     # Achievement system styling
-├── enhanced-styles.css        # Enhanced features styling
-├── advanced-styles.css        # Advanced features styling
-├── social-avatar-styles.css   # Social and avatar customization styles
-├── volume-control-styles.css  # Audio control styling
-├── enneagram-data.js          # Personality types and scenarios
-├── achievements.js            # Achievement system logic
-├── enhanced-features.js       # Save system, difficulty modes, insights
-├── debug-game.js              # Main game engine with debugging
-├── enhanced-experience.js     # Animations, typing effects, celebrations
-├── advanced-features.js       # Weather, journal, compass, customization
-├── immersive-audio.js         # Professional audio system
-├── social-sharing.js          # Social media and creator support
-├── enhanced-avatar.js         # Advanced avatar customization
-├── LICENSE                    # MIT License
-├── .gitignore                # Git ignore file
-└── README.md                 # This comprehensive guide
+├── index.html                    # Root entry point
+├── Docs/                        # Main application files
+│   ├── index.html              # Main HTML file
+│   ├── debug-game.js           # Main game engine (16 questions)
+│   ├── enneagram-data.js       # Core personality types and scenarios
+│   ├── enhanced-scenarios.js   # Moral/ethical dilemma scenarios
+│   ├── enneagram-wings.js      # Wing system and relationship insights
+│   ├── tritype-system.js       # Complete tritype analysis
+│   ├── ux-enhancements.js      # Progress tracking and smart hints
+│   ├── guided-tour.js          # Interactive tutorial system
+│   ├── performance-optimizer.js # Loading screen and optimization
+│   ├── save-system.js          # Multi-slot save/load system
+│   ├── social-sharing.js       # Social media with proper icons
+│   ├── email-signup.js         # Email results delivery
+│   ├── achievements.js         # Achievement system
+│   ├── simple-fantasy-avatar.js # Avatar customization
+│   ├── immersive-audio.js      # Professional audio system
+│   └── [CSS files]             # Comprehensive styling
+├── LICENSE                      # MIT License
+└── README.md                   # This guide
 ```
 
 ## 🎯 How It Works
@@ -160,13 +161,13 @@ choice: {
 ```
 
 ### Game Progression
+- **16 Comprehensive Questions** - Adventure, relationship, philosophical, and ethical scenarios
 - **Experience Points** - Gained from each choice with personality-based bonuses
 - **Multi-Stat Growth** - Wisdom, Courage, Compassion develop based on choices
 - **Dynamic Item Collection** - 6 different magical items with random discovery
 - **Achievement System** - 15+ achievements across personality and progress milestones
-- **Level Progression** - Multi-level system with visual celebrations
-- **Mood Tracking** - Emotional state affects gameplay and responses
-- **Journey Documentation** - Complete quest journal with choice history
+- **Tritype Analysis** - Complete analysis of all three centers of intelligence
+- **Enhanced Relationship Insights** - Detailed compatibility and growth tips
 
 ## 🏆 Comprehensive Achievement System
 
@@ -181,6 +182,12 @@ choice: {
 - **The Challenger** 💪 - Discover Type 8 (The Leader)
 - **The Peacemaker** ☮️ - Discover Type 9 (The Mediator)
 
+### 🔺 Advanced Analysis Features
+- **Wing Analysis** - Detailed wing influence (e.g., 5w6 vs 5w4)
+- **Tritype System** - Complete three-center analysis (e.g., 125 "The Mentor")
+- **Relationship Insights** - Strengths, challenges, tips, and compatibility
+- **Email Results** - Professional analysis delivered to your inbox
+
 ### 📈 Progress & Mastery Achievements
 - **First Steps** 👣 - Make your first choice in the temple
 - **Wisdom Seeker** 🧠 - Reach 50 Wisdom points through thoughtful choices
@@ -194,7 +201,30 @@ choice: {
 - **Avatar Artist** 🎨 - Customize your avatar with unique style
 - **Social Butterfly** 📱 - Share your results on social media
 - **Supporter** ☕ - Support the creator through various means
-- **Feedback Champion** 💬 - Leave detailed feedback about your experience
+ feedback and rate the game
+- **Tour Guide** 🔍 - Complete the guided tutorial
+- **Philosopher** 🤔 - Answer all philosophical dilemma questions
+
+## 🆕 Latest Features
+
+### Version 2.0 Enhancements
+- **16 Questions Total** - Comprehensive personality assessment
+- **Philosophical Scenarios** - Deep ethical dilemmas (trolley problem, authenticity challenges)
+- **Tritype Analysis** - Complete analysis of Body/Heart/Head centers
+- **Enhanced Relationships** - Detailed compatibility insights and growth tips
+- **Professional Social Sharing** - Brand-accurate icons for all platforms
+- **Email Results Delivery** - Automatic inbox delivery of personality analysis
+- **Guided Tour System** - Interactive tutorial for new users
+- **Performance Optimization** - Loading screens and adaptive quality
+- **Enhanced Save System** - Multiple slots with export/import functionality
+
+### User Experience Improvements
+- **Progress Tracking** - Visual progress bar with step indicators
+- **Smart Hints** - Helpful tips after periods of inactivity
+- **Quick Actions** - Pause, journal, stats, and fullscreen access
+- **Keyboard Shortcuts** - Full keyboard navigation support
+- **Results Preview** - Shows leading type during gameplay
+- **Connected Journal** - Unified journal system across all interfaces detailed feedback about your experience
 
 ## 🛠️ Technical Architecture & Details
 
