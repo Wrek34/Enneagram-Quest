@@ -16,7 +16,10 @@ class ImmersiveAudioSystem {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             this.masterGain = this.audioContext.createGain();
             this.masterGain.connect(this.audioContext.destination);
-            this.masterGain.gain.setValueAtTime(0.3, this.audioContext.currentTime);
+            // Load saved volume or default to 0.3
+        const savedVolume = localStorage.getItem('enneagram-volume');
+        const initialVolume = savedVolume ? parseFloat(savedVolume) : 0.3;
+        this.masterGain.gain.setValueAtTime(initialVolume, this.audioContext.currentTime);
             
             this.createSoundLibrary();
             this.setupAudioEvents();
@@ -371,10 +374,15 @@ class ImmersiveAudioSystem {
         if (this.masterGain) {
             this.masterGain.gain.setValueAtTime(volume, this.audioContext.currentTime);
         }
+        // Store volume preference
+        localStorage.setItem('enneagram-volume', volume.toString());
     }
 
     // Add volume control to HUD
     addVolumeControl() {
+        // Remove any existing volume controls
+        document.querySelectorAll('.volume-control').forEach(control => control.remove());
+        
         const volumeControl = document.createElement('div');
         volumeControl.className = 'volume-control';
         volumeControl.innerHTML = `
@@ -387,10 +395,17 @@ class ImmersiveAudioSystem {
             hudSection.appendChild(volumeControl);
         }
 
-        document.getElementById('volume-slider').addEventListener('input', (e) => {
-            const volume = e.target.value / 100;
-            this.setMasterVolume(volume);
-        });
+        const slider = document.getElementById('volume-slider');
+        if (slider) {
+            slider.addEventListener('input', (e) => {
+                const volume = e.target.value / 100;
+                this.setMasterVolume(volume);
+                // Also update game sound setting
+                if (window.game) {
+                    window.game.soundEnabled = volume > 0;
+                }
+            });
+        }
     }
 }
 

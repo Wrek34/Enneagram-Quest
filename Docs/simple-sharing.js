@@ -94,16 +94,16 @@ class SimpleSharing {
 
                 <div class="share-options">
                     <div class="share-platforms">
-                        <button class="platform-btn twitter" onclick="simpleSharing.shareToTwitter('${customMessage}')">
-                            <span class="platform-icon">🐦</span>
-                            Twitter
+                        <button class="platform-btn twitter" onclick="simpleSharing.shareToX('${customMessage}')">
+                            <span class="platform-icon">𝕏</span>
+                            X
                         </button>
                         <button class="platform-btn facebook" onclick="simpleSharing.shareToFacebook()">
-                            <span class="platform-icon">📘</span>
+                            <span class="platform-icon">f</span>
                             Facebook
                         </button>
                         <button class="platform-btn linkedin" onclick="simpleSharing.shareToLinkedIn('${customMessage}')">
-                            <span class="platform-icon">💼</span>
+                            <span class="platform-icon">in</span>
                             LinkedIn
                         </button>
                         <button class="platform-btn whatsapp" onclick="simpleSharing.shareToWhatsApp('${customMessage}')">
@@ -141,7 +141,7 @@ class SimpleSharing {
         });
     }
 
-    shareToTwitter(message) {
+    shareToX(message) {
         const text = `${message}\\n\\n🏛️ Play Enneagram Quest - An adventure-style personality test!\\n\\n#EnneagramQuest #PersonalityTest #Adventure`;
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(this.gameUrl)}`;
         window.open(url, '_blank', 'width=600,height=400');

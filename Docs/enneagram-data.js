@@ -72,8 +72,8 @@ const scenarios = [
         text: "You stand before massive stone doors covered in mysterious symbols. Three paths lead forward, each with a different inscription. How do you proceed?",
         choices: [
             { text: "Study the symbols carefully to decode their meaning before proceeding", types: [1, 5] },
-            { text: "Ask your companions what they think and seek their input", types: [2, 6, 9] },
-            { text: "Choose the path that looks most impressive and charge ahead confidently", types: [3, 7, 8] },
+            { text: "Ask your companions for their thoughts and seek their input", types: [2, 6, 9] },
+            { text: "Choose the path that looks most impressive and move forward confidently", types: [3, 7, 8] },
             { text: "Follow your intuition and choose the path that feels most meaningful to you", types: [4] }
         ]
     },
@@ -98,10 +98,10 @@ const scenarios = [
         choices: [
             { text: "Insist on following proper archaeological protocols", types: [1] },
             { text: "Worry about everyone's safety and suggest leaving", types: [2, 6] },
-            { text: "Quickly grab the most valuable items before anyone changes their mind", types: [3, 7] },
+            { text: "Quickly secure the most valuable items before anyone changes their mind", types: [3, 7] },
             { text: "Feel conflicted about disturbing something so beautiful and ancient", types: [4, 9] },
             { text: "Analyze the trap mechanism to understand how it works", types: [5] },
-            { text: "Take charge and make the decision for the group", types: [8] }
+            { text: "Take charge and make the decision for everyone", types: [8] }
         ]
     },
     {
@@ -136,7 +136,7 @@ const scenarios = [
     },
     {
         title: "The Team Crisis",
-        text: "Your adventure party faces a crisis - supplies are running low and morale is dropping. As tensions rise, how do you respond?",
+        text: "Your adventure party faces a crisis—supplies are running low and morale is dropping. As tensions rise, how do you respond?",
         choices: [
             { text: "Create a detailed plan to efficiently manage remaining resources", types: [1] },
             { text: "Focus on encouraging others and boosting team morale", types: [2] },

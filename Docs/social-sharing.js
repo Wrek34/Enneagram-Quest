@@ -36,9 +36,9 @@ class SocialSharingSystem {
                 <p>Let others discover their personality type too!</p>
             </div>
             <div class="social-buttons">
-                <button class="social-btn twitter" onclick="socialSystem.shareToTwitter()">
-                    <span class="social-icon">🐦</span>
-                    Share on Twitter
+                <button class="social-btn twitter" onclick="socialSystem.shareToX()">
+                    <span class="social-icon">𝕏</span>
+                    Share on X
                 </button>
                 <button class="social-btn facebook" onclick="socialSystem.shareToFacebook()">
                     <span class="social-icon">📘</span>
@@ -126,7 +126,7 @@ class SocialSharingSystem {
         window.socialSystem = this; // Make available globally for onclick handlers
     }
 
-    shareToTwitter() {
+    shareToX() {
         const dominantType = this.game.calculateDominantType();
         const typeData = enneagramTypes[dominantType];
         const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
@@ -139,7 +139,7 @@ class SocialSharingSystem {
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
         
-        this.trackShare('twitter');
+        this.trackShare('x');
     }
 
     shareToFacebook() {

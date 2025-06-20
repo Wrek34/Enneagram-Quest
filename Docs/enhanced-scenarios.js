@@ -2,7 +2,7 @@
 const enhancedScenarios = [
     {
         title: "The Whistleblower's Dilemma",
-        text: "You discover your trusted colleague has been embezzling funds meant for charity. They confide they're desperate to pay for their child's medical treatment. What do you do?",
+        text: "You discover your trusted colleague has been embezzling funds meant for charity. They confide that they're desperate to pay for their child's medical treatment. What do you do?",
         choices: [
             { text: "Report them immediately - rules exist for a reason and must be followed", types: [1, 6] },
             { text: "Offer to help them find legal ways to get the money they need", types: [2, 9] },
@@ -16,7 +16,7 @@ const enhancedScenarios = [
     },
     {
         title: "The Promotion Predicament",
-        text: "You're up for a promotion against your close friend. You discover they've been taking credit for some of your work. Confronting them could hurt your friendship but staying silent feels wrong.",
+        text: "You're up for a promotion against your close friend. You discover they've been taking credit for some of your work. Confronting them could hurt your friendship, but staying silent feels wrong.",
         choices: [
             { text: "Document everything and present the facts to management professionally", types: [1, 5] },
             { text: "Talk to your friend privately first to understand why they did this", types: [2, 9] },
@@ -46,7 +46,7 @@ const enhancedScenarios = [
     },
     {
         title: "The Charitable Deception",
-        text: "Your organization inflates impact numbers to secure a major donation that would genuinely help thousands. The donor won't verify the numbers, and the good the money could do is real. Do you speak up?",
+        text: "Your organization inflates impact numbers to secure a major donation that would genuinely help thousands. The donor won't verify the numbers, and the good that the money could do is real. Do you speak up?",
         choices: [
             { text: "Insist on accurate reporting regardless of consequences", types: [1] },
             { text: "Focus on how to help those in need while maintaining integrity", types: [2, 1] },
@@ -61,7 +61,7 @@ const enhancedScenarios = [
     },
     {
         title: "The Loyalty Test",
-        text: "Your best friend's partner confides they're having an affair and planning to leave. Your friend is about to make a major financial commitment based on their relationship. Do you warn them?",
+        text: "Your best friend's partner confides that they're having an affair and planning to leave. Your friend is about to make a major financial commitment based on their relationship. Do you warn them?",
         choices: [
             { text: "Tell your friend immediately - they deserve to know the truth", types: [1, 8] },
             { text: "Encourage the partner to be honest while offering support to both", types: [2] },
@@ -71,7 +71,7 @@ const enhancedScenarios = [
             { text: "Seek advice about the right thing to do in this situation", types: [6] },
             { text: "Hope the situation resolves itself before the financial commitment", types: [7, 9] },
             { text: "Give the partner an ultimatum - tell your friend or you will", types: [8] },
-            { text: "Stay out of it - it's not your place to interfere in their relationship", types: [9] }
+            { text: "Stay out of it—it's not your place to interfere in their relationship", types: [9] }
         ]
     },
     {
