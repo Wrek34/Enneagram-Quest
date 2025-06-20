@@ -11,6 +11,8 @@ class EnneagramQuestGame extends EnneagramQuest {
         };
         this.inventory = [];
         this.achievements = new AchievementSystem(this);
+        this.enhancements = new GameEnhancements(this);
+        this.advancedParticles = new AdvancedParticleSystem(document.getElementById('particle-canvas'));
         this.soundEnabled = true;
         
         this.initializeGameComponents();
@@ -132,6 +134,7 @@ class EnneagramQuestGame extends EnneagramQuest {
         this.particles = [];
         
         this.startParticleAnimation();
+        this.advancedParticles.update();
     }
 
     createCharacterSprites() {
@@ -197,6 +200,14 @@ class EnneagramQuestGame extends EnneagramQuest {
         this.sounds.select();
         this.updatePlayerStats();
         this.addChoiceEffect(choiceElement);
+        
+        // Enhanced particle effect
+        const rect = choiceElement.getBoundingClientRect();
+        this.advancedParticles.createBurstEffect(
+            rect.left + rect.width / 2,
+            rect.top + rect.height / 2,
+            '#27ae60'
+        );
         
         // Check achievements
         if (this.currentScenario === 0) {
