@@ -420,19 +420,19 @@ class UXEnhancements {
 
     showJournal() {
         // Connect to advanced features journal system
-        if (window.game && window.game.advancedFeatures) {
+        if (window.game && window.game.advancedFeatures && window.game.advancedFeatures.showJournal) {
             window.game.advancedFeatures.showJournal();
         } else {
-            // Fallback journal display
-            this.showBasicJournal();
+            // Use unified journal system
+            this.showUnifiedJournal();
         }
     }
 
-    showBasicJournal() {
+    showUnifiedJournal() {
         const journalModal = document.createElement('div');
-        journalModal.className = 'journal-modal';
+        journalModal.className = 'unified-journal-modal';
         journalModal.innerHTML = `
-            <div class="journal-content">
+            <div class="unified-journal-content">
                 <div class="journal-header">
                     <h3>📖 Quest Journal</h3>
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn">×</button>

@@ -102,8 +102,8 @@
     height: 100%;
 }
 
-/* Journal Modal Styles */
-.journal-modal {
+/* Unified Journal Modal Styles */
+.unified-journal-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,8 +117,8 @@
     backdrop-filter: blur(5px);
 }
 
-.journal-content {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+.unified-journal-content {
+    background: #ffffff;
     border-radius: 20px;
     padding: 2rem;
     max-width: 600px;
@@ -127,6 +127,7 @@
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: slideInUp 0.3s ease;
+    border: 2px solid #3498db;
 }
 
 .journal-header {
@@ -134,7 +135,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #dee2e6;
+    border-bottom: 3px solid #3498db;
     padding-bottom: 1rem;
 }
 
@@ -142,6 +143,7 @@
     color: #2c3e50;
     font-size: 1.8rem;
     margin: 0;
+    font-weight: bold;
 }
 
 .close-btn {
@@ -171,12 +173,13 @@
 }
 
 .journal-entry {
-    background: white;
+    background: #f8f9fa;
     border-radius: 15px;
     padding: 1.5rem;
     margin-bottom: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #667eea;
+    border-left: 6px solid #3498db;
+    border: 2px solid #e9ecef;
 }
 
 .entry-header {
@@ -184,46 +187,56 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
 }
 
 .entry-number {
     font-weight: bold;
-    color: #667eea;
-    font-size: 1.1rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
 }
 
 .entry-time {
-    color: #6c757d;
+    color: #2c3e50;
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .entry-content h4 {
     color: #2c3e50;
     margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .entry-content p {
-    color: #495057;
+    color: #2c3e50;
     line-height: 1.6;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .entry-content em {
-    color: #6c757d;
+    color: #34495e;
     font-style: italic;
+    font-weight: bold;
 }
 
 .no-entries {
     text-align: center;
-    color: #6c757d;
+    color: #2c3e50;
     font-style: italic;
     padding: 2rem;
-    background: white;
+    background: #f8f9fa;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3498db;
+    font-weight: bold;
 }
 
 /* Share Stats */
