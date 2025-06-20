@@ -116,7 +116,8 @@ class EmailCollectionSystem {
                 <div class="success-icon">🎉</div>
                 <h3>Welcome to the Journey!</h3>
                 <p>Check your email for personalized insights about your Enneagram Type!</p>
-                <button onclick="this.parentElement.parentElement.remove()" class="close-btn">Continue</button>
+                <p><small>You can continue exploring your results and sharing them below.</small></p>
+                <button onclick="this.parentElement.parentElement.remove()" class="close-btn">Continue Exploring</button>
             </div>
         `;
     }
