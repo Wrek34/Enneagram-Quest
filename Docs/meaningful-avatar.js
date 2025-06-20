@@ -177,6 +177,21 @@ class MeaningfulAvatar {
         console.log(`🎭 Selected avatar: ${trait.name}`);
     }
 
+    setDefaultAvatar() {
+        // Set default avatar if none selected
+        if (!this.game.selectedAvatar) {
+            this.game.selectedAvatar = 'boring';
+            this.game.avatarTrait = {
+                name: 'The Boring Adventurer',
+                description: 'Takes the safe, predictable path through life',
+                typeInfluence: [],
+                bonusStats: {},
+                specialAbility: 'Predictability - Always chooses the most obvious option',
+                personality: 'Conventional and risk-averse, prefers familiar patterns'
+            };
+        }
+    }
+
     updateAvatarDisplay(avatarKey, trait) {
         const avatarElement = document.querySelector('#player-avatar .avatar-sprite');
         if (avatarElement) {
@@ -201,6 +216,9 @@ class MeaningfulAvatar {
         // Modify scenario display to include avatar insights
         const originalDisplayScenario = this.game.displayScenario.bind(this.game);
         this.game.displayScenario = () => {
+            // Set default avatar if none selected
+            this.setDefaultAvatar();
+            
             originalDisplayScenario();
             
             setTimeout(() => {
