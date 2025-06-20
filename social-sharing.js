@@ -56,6 +56,10 @@ class SocialSharingSystem {
                     <span class="social-icon">📧</span>
                     Share via Email
                 </button>
+                <button class="social-btn tiktok" onclick="socialSystem.shareToTikTok()">
+                    <span class="social-icon">🎤</span>
+                    Share on TikTok
+                </button>
             </div>
             <div class="share-stats">
                 <p>Join thousands who've discovered their Enneagram type!</p>
@@ -98,11 +102,14 @@ class SocialSharingSystem {
                 <p>Created with ❤️ by <strong>Enneagram and Beyond</strong></p>
                 <p>Follow us for more personality insights and tools!</p>
                 <div class="follow-buttons">
-                    <button class="follow-btn" onclick="socialSystem.followTwitter()">
-                        🐦 Follow on Twitter
+                    <button class="follow-btn" onclick="socialSystem.followTikTok()">
+                        🎤 Follow on TikTok
                     </button>
                     <button class="follow-btn" onclick="socialSystem.followInstagram()">
                         📸 Follow on Instagram
+                    </button>
+                    <button class="follow-btn" onclick="window.open('https://msha.ke/kaciwieczorek', '_blank')">
+                        🌐 Visit Website
                     </button>
                 </div>
             </div>
@@ -311,8 +318,35 @@ class SocialSharingSystem {
     }
 
     followInstagram() {
-        window.open('https://instagram.com/enneagramandbeyond', '_blank');
+        window.open('https://instagram.com/hrenneagram.kaci', '_blank');
         this.trackSupport('follow-instagram');
+    }
+
+    shareToTikTok() {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        const text = `I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest! 🏛️ This adventure-style personality game is incredible! What's your type? Try it: https://wrek34.github.io/Enneagram-Quest #EnneagramQuest #PersonalityTest #Enneagram #SelfDiscovery`;
+        
+        // TikTok doesn't have a direct share URL, so we copy the text for users to paste
+        navigator.clipboard.writeText(text).then(() => {
+            this.showNotification('TikTok caption copied! Open TikTok to create your video 🎤', 'success');
+            // Also open TikTok web
+            window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+        }).catch(() => {
+            // Fallback
+            window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+            this.showNotification('Visit our TikTok @enneagram.kaci to share! 🎤', 'info');
+        });
+        
+        this.trackShare('tiktok');
+    }
+
+    followTikTok() {
+        window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+        this.trackSupport('follow-tiktok');
     }
 
     closeFeedbackModal() {

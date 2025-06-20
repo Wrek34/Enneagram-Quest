@@ -1,0 +1,358 @@
+/* Email Signup and Expert Consultation Styles */
+
+.email-signup-section {
+    margin-top: 3rem;
+    padding: 0;
+}
+
+.expert-consultation {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.expert-consultation::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: shimmer 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.expert-header h4 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.expert-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Benefits Grid */
+.expert-benefits {
+    margin-bottom: 3rem;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.benefit-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Signup Form */
+.signup-form {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.signup-form h5 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.email-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#user-email {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+#user-email::placeholder {
+    color: #7f8c8d;
+}
+
+#user-email:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+}
+
+.signup-btn {
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+}
+
+.form-benefits {
+    text-align: center;
+}
+
+.form-benefits p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.privacy-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Signup Success */
+.signup-success {
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s ease-in-out;
+}
+
+.signup-success h5 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.signup-success p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.next-steps {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.next-steps p {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.next-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+.next-steps li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+/* Expert CTA */
+.expert-cta {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.expert-profile {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.expert-info h6 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.expert-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.expert-link {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+}
+
+.expert-link:hover {
+    background: linear-gradient(135deg, #229954, #27ae60);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+/* TikTok Button Styling */
+.social-btn.tiktok {
+    background: linear-gradient(135deg, #ff0050, #ff4081);
+    color: white;
+}
+
+.social-btn.tiktok:hover {
+    background: linear-gradient(135deg, #e6004a, #ff1744);
+}
+
+/* Animations */
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expert-consultation {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .expert-header h4 {
+        font-size: 1.8rem;
+    }
+    
+    .expert-header p {
+        font-size: 1rem;
+    }
+    
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefit-item {
+        padding: 1rem;
+    }
+    
+    .signup-form {
+        padding: 2rem;
+    }
+    
+    .form-group {
+        flex-direction: column;
+    }
+    
+    #user-email {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .signup-btn {
+        width: 100%;
+    }
+    
+    .expert-cta {
+        padding: 2rem;
+    }
+    
+    .expert-info h6 {
+        font-size: 1.3rem;
+    }
+    
+    .expert-info p {
+        font-size: 1rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .expert-consultation {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+    
+    #user-email {
+        background: rgba(44, 62, 80, 0.9);
+        color: #ecf0f1;
+        border-color: rgba(236, 240, 241, 0.3);
+    }
+    
+    #user-email::placeholder {
+        color: #bdc3c7;
+    }
+}

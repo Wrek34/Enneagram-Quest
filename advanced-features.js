@@ -7,7 +7,7 @@ class AdvancedGameFeatures {
 
     initializeAdvancedFeatures() {
         this.addDynamicBackgrounds();
-        this.addCharacterCustomization();
+        // Character customization removed - using simple fantasy avatar system
         this.addPersonalityHints();
         this.addMoodSystem();
         this.addQuestJournal();
