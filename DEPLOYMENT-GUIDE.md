@@ -19,7 +19,7 @@ Complete step-by-step instructions to deploy your Enneagram Quest game online an
 1. **Go to GitHub.com** and sign in to your account
 2. **Click "New Repository"** (green button)
 3. **Repository Settings:**
-   - Repository name: `enneagram-quest` (or your preferred name)
+   - Repository name: `Enneagram-Quest`
    - Description: `An immersive adventure-style Enneagram personality assessment game`
    - Set to **Public** (required for free GitHub Pages)
    - ✅ Check "Add a README file"
@@ -61,8 +61,8 @@ Complete step-by-step instructions to deploy your Enneagram Quest game online an
 #### Option B: Using Git Command Line
 ```bash
 # Clone your repository
-git clone https://github.com/YOUR-USERNAME/enneagram-quest.git
-cd enneagram-quest
+git clone https://github.com/wrek34/Enneagram-Quest.git
+cd Enneagram-Quest
 
 # Copy all your game files to this directory
 # Then add, commit, and push
@@ -82,7 +82,7 @@ git push origin main
    - Folder: "/ (root)"
 5. **Click "Save"**
 6. **Wait 5-10 minutes** for deployment
-7. **Your game will be live at:** `https://YOUR-USERNAME.github.io/enneagram-quest`
+7. **Your game will be live at:** `https://wrek34.github.io/Enneagram-Quest`
 
 ### Step 4: Update Links in Your Game
 
@@ -90,7 +90,7 @@ git push origin main
    ```javascript
    // Replace these placeholder URLs with your actual links
    starOnGitHub() {
-       const githubUrl = 'https://github.com/YOUR-USERNAME/enneagram-quest';
+       const githubUrl = 'https://github.com/wrek34/Enneagram-Quest';
        window.open(githubUrl, '_blank');
    }
    ```
@@ -98,7 +98,7 @@ git push origin main
 2. **Edit `README.md`** and update:
    ```markdown
    ## 🎮 Live Demo
-   [Play Enneagram Quest](https://YOUR-USERNAME.github.io/enneagram-quest)
+   [Play Enneagram Quest](https://wrek34.github.io/Enneagram-Quest)
    ```
 
 ---
@@ -333,7 +333,7 @@ Play now: [YOUR-URL]
 
 Your Enneagram Quest is now live and ready to help people discover their personality types through adventure! 
 
-**Your game is accessible at:** `https://YOUR-USERNAME.github.io/enneagram-quest`
+**Your game is accessible at:** `https://wrek34.github.io/Enneagram-Quest`
 
 Share this link everywhere and watch as people embark on their personality discovery journeys! 🌟
 

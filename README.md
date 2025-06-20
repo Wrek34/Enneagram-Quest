@@ -9,7 +9,7 @@ An immersive, adventure-style personality assessment game that helps users disco
 
 ## 🎮 Live Demo
 
-[Play Enneagram Quest](https://your-username.github.io/enneagram-quest) *(Update with your GitHub Pages URL)*
+[Play Enneagram Quest](https://wrek34.github.io/Enneagram-Quest)
 
 ## ✨ Revolutionary Features
 
@@ -66,7 +66,7 @@ An immersive, adventure-style personality assessment game that helps users disco
 ### 🎮 For Players
 
 #### Option 1: Play Online (Recommended)
-1. Visit [Enneagram Quest Live Demo](https://your-username.github.io/enneagram-quest)
+1. Visit [Enneagram Quest Live Demo](https://wrek34.github.io/Enneagram-Quest)
 2. Click "Begin Your Quest" to start your adventure
 3. Customize your avatar and choose difficulty
 4. Embark on your personality discovery journey!
@@ -82,7 +82,7 @@ An immersive, adventure-style personality assessment game that helps users disco
 #### Local Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/enneagram-quest.git
+git clone https://github.com/wrek34/enneagram-quest.git
 
 # Navigate to project directory
 cd enneagram-quest
@@ -448,7 +448,7 @@ We welcome contributions from developers, designers, psychologists, and personal
 1. Push your code to a GitHub repository
 2. Go to repository Settings → Pages
 3. Select source branch (usually `main`)
-4. Your game will be available at `https://username.github.io/repository-name`
+4. Your game will be available at `https://wrek34.github.io/Enneagram-Quest`
 
 ### Netlify
 1. Connect your GitHub repository to Netlify
@@ -539,8 +539,6 @@ We welcome contributions from developers, designers, psychologists, and personal
 - **VR Support** - Immersive virtual reality experience
 - **Localization** - Multiple language support
 
-## 📞 Support
-
 ### Getting Help
 - **GitHub Issues** - For bugs and feature requests
 - **Discussions** - For questions and community chat
@@ -570,10 +568,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Project Stats
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/enneagram-quest?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/enneagram-quest?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/enneagram-quest)
-![GitHub license](https://img.shields.io/github/license/your-username/enneagram-quest)
+![GitHub stars](https://img.shields.io/github/stars/wrek34/Enneagram-Quest?style=social)
+![GitHub forks](https://img.shields.io/github/forks/wrek34/Enneagram-Quest?style=social)
+![GitHub issues](https://img.shields.io/github/issues/wrek34/Enneagram-Quest)
+![GitHub license](https://img.shields.io/github/license/wrek34/Enneagram-Quest)
 
 ## 💝 Support Enneagram Quest
 

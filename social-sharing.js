@@ -118,9 +118,12 @@ class SocialSharingSystem {
     shareToTwitter() {
         const dominantType = this.game.calculateDominantType();
         const typeData = enneagramTypes[dominantType];
-        const text = `I just discovered I'm ${typeData.title} in Enneagram Quest! 🏛️✨ This immersive personality game is incredible - complete with RPG elements, achievements, and beautiful audio! What's your Enneagram type?`;
-        const url = window.location.href;
-        const hashtags = 'EnneagramQuest,PersonalityTest,SelfDiscovery,Enneagram';
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        const text = `🏛️ I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest!\n\n${typeData.description.substring(0, 100)}...\n\n✨ This adventure-style personality game is amazing! Discover YOUR type through an epic quest with RPG elements, achievements & immersive audio!\n\n🎮 Try it yourself:`;
+        const url = 'https://wrek34.github.io/Enneagram-Quest';
+        const hashtags = 'EnneagramQuest,PersonalityTest,SelfDiscovery,Enneagram,Adventure';
         
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
@@ -129,7 +132,7 @@ class SocialSharingSystem {
     }
 
     shareToFacebook() {
-        const url = window.location.href;
+        const url = 'https://wrek34.github.io/Enneagram-Quest';
         const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
         window.open(facebookUrl, '_blank', 'width=600,height=400');
         
@@ -139,9 +142,12 @@ class SocialSharingSystem {
     shareToLinkedIn() {
         const dominantType = this.game.calculateDominantType();
         const typeData = enneagramTypes[dominantType];
-        const title = 'Enneagram Quest - Discover Your Personality Type';
-        const summary = `I discovered I'm ${typeData.title} through this amazing interactive personality assessment game!`;
-        const url = window.location.href;
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        const title = 'Enneagram Quest - Adventure-Style Personality Discovery';
+        const summary = `I just discovered I'm ${typeData.title} (Type ${wingText}) through Enneagram Quest! ${typeData.description.substring(0, 120)}... This immersive game combines personality assessment with RPG adventure. What's your type?`;
+        const url = 'https://wrek34.github.io/Enneagram-Quest';
         
         const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
         window.open(linkedInUrl, '_blank', 'width=600,height=400');
@@ -150,13 +156,14 @@ class SocialSharingSystem {
     }
 
     async copyLink() {
+        const url = 'https://wrek34.github.io/Enneagram-Quest';
         try {
-            await navigator.clipboard.writeText(window.location.href);
+            await navigator.clipboard.writeText(url);
             this.showNotification('Link copied to clipboard! 📋', 'success');
         } catch (error) {
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
-            textArea.value = window.location.href;
+            textArea.value = url;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand('copy');
@@ -170,8 +177,11 @@ class SocialSharingSystem {
     shareViaEmail() {
         const dominantType = this.game.calculateDominantType();
         const typeData = enneagramTypes[dominantType];
-        const subject = 'Check out this amazing Enneagram personality game!';
-        const body = `Hi!\n\nI just took this incredible Enneagram Quest and discovered I'm ${typeData.title}! 🎭\n\nIt's not just a quiz - it's a full adventure game with:\n• RPG-style progression and achievements\n• Beautiful audio and visual effects\n• Immersive storytelling\n• Character customization\n\nYou should definitely try it: ${window.location.href}\n\nLet me know what personality type you get!\n\nBest regards`;
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        const subject = 'Discover Your Personality Type Through Adventure! 🏛️';
+        const body = `Hi!\n\nI just completed Enneagram Quest and discovered I'm ${typeData.title} (Type ${wingText})! 🎭\n\n${typeData.description}\n\nThis isn't just another personality test - it's a full adventure game featuring:\n✨ Immersive storytelling with 12+ scenarios\n🎮 RPG-style progression and achievements\n🎨 Avatar customization and visual effects\n🎵 Professional audio and musical themes\n📊 Detailed results with wing analysis\n\nDiscover YOUR personality type through this epic quest:\nhttps://wrek34.github.io/Enneagram-Quest\n\nI'd love to know what type you get! The adventure awaits! 🌟\n\nBest regards`;
         
         const emailUrl = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = emailUrl;
@@ -195,8 +205,7 @@ class SocialSharingSystem {
     }
 
     starOnGitHub() {
-        // Replace with actual GitHub repository
-        const githubUrl = 'https://github.com/your-username/enneagram-quest';
+        const githubUrl = 'https://github.com/wrek34/Enneagram-Quest';
         window.open(githubUrl, '_blank');
         this.trackSupport('github');
     }
@@ -232,8 +241,8 @@ class SocialSharingSystem {
 
     openFeedbackForm(type) {
         const forms = {
-            bug: 'https://github.com/your-username/enneagram-quest/issues/new?template=bug_report.md',
-            feature: 'https://github.com/your-username/enneagram-quest/issues/new?template=feature_request.md',
+            bug: 'https://github.com/wrek34/Enneagram-Quest/issues/new?labels=bug&title=Bug%20Report:',
+            feature: 'https://github.com/wrek34/Enneagram-Quest/issues/new?labels=enhancement&title=Feature%20Request:',
             general: 'mailto:feedback@enneagramandbeyond.com?subject=Enneagram Quest Feedback'
         };
         
