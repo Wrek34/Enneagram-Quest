@@ -368,6 +368,48 @@ class AdvancedGameFeatures {
             }
         };
 
+        this.animateChoiceDirection = (choiceTypes) => {
+            if (!choiceTypes || choiceTypes.length === 0) return;
+            
+            // Determine which direction this choice points to
+            const actionTypes = [1, 8];
+            const successTypes = [3, 7];
+            const heartTypes = [2, 9];
+            const mindTypes = [4, 5];
+            
+            let direction = null;
+            let color = '#9b59b6';
+            
+            if (choiceTypes.some(type => actionTypes.includes(type))) {
+                direction = 'north';
+                color = '#e74c3c';
+            } else if (choiceTypes.some(type => successTypes.includes(type))) {
+                direction = 'east';
+                color = '#f39c12';
+            } else if (choiceTypes.some(type => heartTypes.includes(type))) {
+                direction = 'south';
+                color = '#e91e63';
+            } else if (choiceTypes.some(type => mindTypes.includes(type))) {
+                direction = 'west';
+                color = '#3498db';
+            }
+            
+            if (direction) {
+                const compassPoint = document.querySelector(`.compass-point.${direction}`);
+                if (compassPoint) {
+                    compassPoint.style.background = color;
+                    compassPoint.style.color = 'white';
+                    compassPoint.style.animation = 'compassPulse 1s ease-in-out';
+                    
+                    setTimeout(() => {
+                        compassPoint.style.background = 'rgba(255, 255, 255, 0.9)';
+                        compassPoint.style.color = '#2c3e50';
+                        compassPoint.style.animation = '';
+                    }, 1000);
+                }
+            }
+        };
+
         // Create compass when game starts
         const originalStartGame = this.game.startGame.bind(this.game);
         this.game.startGame = () => {
@@ -379,6 +421,12 @@ class AdvancedGameFeatures {
         const originalSelectChoice = this.game.selectChoice.bind(this.game);
         this.game.selectChoice = (choiceElement) => {
             originalSelectChoice(choiceElement);
+            
+            // Animate choice direction immediately
+            if (this.game.currentChoice && this.game.currentChoice.types) {
+                this.animateChoiceDirection(this.game.currentChoice.types);
+            }
+            
             setTimeout(() => this.updateCompass(), 1000);
         };
     }

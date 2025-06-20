@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enneagram Quest - Discover Your Personality Type</title>
     <meta name="description" content="An interactive adventure game to discover your Enneagram personality type through engaging scenarios">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
     <!-- Path fixer script to handle Docs folder structure -->
     <script src="Docs/path-fixer.js"></script>
     <!-- CSS files will be dynamically adjusted by path-fixer.js -->
@@ -29,6 +30,13 @@
     <link rel="stylesheet" href="Docs/email-collection-styles.css">
 </head>
 <body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-crystal">
+            <div class="crystal-ball-loader">🔮</div>
+            <div class="loading-text">Awakening the Crystal Ball...</div>
+        </div>
+    </div>
+    
     <header>
         <h1>Enneagram Quest</h1>
         <p>Embark on an adventure to discover your true personality type</p>
