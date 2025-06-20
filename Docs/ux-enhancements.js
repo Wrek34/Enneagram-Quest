@@ -419,12 +419,51 @@ class UXEnhancements {
     }
 
     showJournal() {
-        // This would integrate with existing journal system
-        if (this.game.advancedFeatures && this.game.advancedFeatures.showJournal) {
-            this.game.advancedFeatures.showJournal();
+        // Connect to advanced features journal system
+        if (window.game && window.game.advancedFeatures) {
+            window.game.advancedFeatures.showJournal();
         } else {
-            this.showFloatingMessage('📖 Journal feature coming soon!');
+            // Fallback journal display
+            this.showBasicJournal();
         }
+    }
+
+    showBasicJournal() {
+        const journalModal = document.createElement('div');
+        journalModal.className = 'journal-modal';
+        journalModal.innerHTML = `
+            <div class="journal-content">
+                <div class="journal-header">
+                    <h3>📖 Quest Journal</h3>
+                    <button onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn">×</button>
+                </div>
+                <div class="journal-entries">
+                    ${this.getJournalEntries()}
+                </div>
+            </div>
+        `;
+        document.body.appendChild(journalModal);
+    }
+
+    getJournalEntries() {
+        const entries = JSON.parse(localStorage.getItem('enneagram-journal') || '[]');
+        if (entries.length === 0) {
+            return '<p class="no-entries">Your adventure journal is empty. Start your quest to record your journey!</p>';
+        }
+        
+        return entries.map((entry, index) => `
+            <div class="journal-entry">
+                <div class="entry-header">
+                    <span class="entry-number">Entry ${index + 1}</span>
+                    <span class="entry-time">${new Date(entry.timestamp).toLocaleString()}</span>
+                </div>
+                <div class="entry-content">
+                    <h4>${entry.scenario}</h4>
+                    <p><strong>Your choice:</strong> ${entry.choice}</p>
+                    ${entry.reflection ? `<p><em>${entry.reflection}</em></p>` : ''}
+                </div>
+            </div>
+        `).join('');
     }
 }
 
