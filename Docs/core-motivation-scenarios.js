@@ -49,15 +49,15 @@ const coreMotivationScenarios = [
         title: "Your Stress Response",
         text: "When you're under significant stress, what happens to you internally?",
         choices: [
-            { text: "I become more critical and angry about everything being wrong", types: [1] },
-            { text: "I become more aggressive and demanding of others' attention", types: [2] },
-            { text: "I become more driven and workaholic, or completely shut down", types: [3] },
-            { text: "I become more moody and withdrawn into my emotions", types: [4] },
-            { text: "I become more scattered and hyperactive, or completely isolated", types: [5] },
-            { text: "I become more anxious and reactive, or more aggressive", types: [6] },
-            { text: "I become more scattered and impulsive, or more perfectionist", types: [7] },
-            { text: "I become more secretive and withdrawn, or more helpful", types: [8] },
-            { text: "I become more anxious and worried, or more confrontational", types: [9] }
+            { text: "I become more critical and angry, seeing everything that's wrong", types: [1] },
+            { text: "I become more aggressive in seeking attention and help from others", types: [2] },
+            { text: "I become either frantically busy achieving or completely shut down", types: [3] },
+            { text: "I become more moody, withdrawn, and lost in my emotions", types: [4] },
+            { text: "I become either hyperactive and scattered or completely isolated", types: [5] },
+            { text: "I become more anxious and reactive, or surprisingly aggressive", types: [6] },
+            { text: "I become scattered and impulsive, or obsessively focused on details", types: [7] },
+            { text: "I become more secretive and withdrawn, or unexpectedly helpful", types: [8] },
+            { text: "I become more anxious and worried, or surprisingly confrontational", types: [9] }
         ]
     },
     {
@@ -137,17 +137,17 @@ const coreMotivationScenarios = [
     },
     {
         title: "Your Inner Critic",
-        text: "What does your inner critical voice typically tell you?",
+        text: "What does your harshest inner voice typically tell you?",
         choices: [
-            { text: "You're not good enough, you made mistakes, you should be perfect", types: [1] },
-            { text: "You're being selfish, you should focus on others, you're not needed", types: [2] },
-            { text: "You're failing, you're not successful enough, you're worthless", types: [3] },
-            { text: "You're ordinary, you don't matter, no one understands you", types: [4] },
+            { text: "You're not good enough, you made mistakes, you must be perfect", types: [1] },
+            { text: "You're being selfish, focus on others, you're not lovable as you are", types: [2] },
+            { text: "You're failing, you're worthless without achievements, you must succeed", types: [3] },
+            { text: "You're ordinary and insignificant, no one truly understands you", types: [4] },
             { text: "You don't know enough, you're incompetent, you'll be overwhelmed", types: [5] },
-            { text: "You can't trust yourself, you need guidance, something will go wrong", types: [6] },
-            { text: "You're missing out, you're trapped, you should be happier", types: [7] },
-            { text: "You're weak, you're being controlled, you need to be stronger", types: [8] },
-            { text: "You're causing problems, you should go along, don't rock the boat", types: [9] }
+            { text: "You can't trust yourself, you need others' guidance, danger is coming", types: [6] },
+            { text: "You're missing out on life, you're trapped, you should be happier", types: [7] },
+            { text: "You're weak and vulnerable, others will control you, be stronger", types: [8] },
+            { text: "You're causing problems, just go along with others, don't make waves", types: [9] }
         ]
     },
     {
@@ -166,26 +166,26 @@ const coreMotivationScenarios = [
         ]
     },
     {
-        title: "Your Energy and Motivation",
-        text: "What gives you energy and motivates you most?",
+        title: "Your Core Drive",
+        text: "What fundamentally drives and energizes you at the deepest level?",
         choices: [
-            { text: "Making things better, improving systems, doing quality work", types: [1] },
-            { text: "Helping others, being appreciated, making people feel loved", types: [2] },
-            { text: "Achieving goals, being recognized, overcoming challenges", types: [3] },
-            { text: "Creating something beautiful, expressing my authentic self", types: [4] },
-            { text: "Understanding complex ideas, mastering skills, having autonomy", types: [5] },
-            { text: "Being part of something bigger, having security, loyal relationships", types: [6] },
-            { text: "New experiences, possibilities, keeping life interesting", types: [7] },
-            { text: "Taking on challenges, protecting others, being independent", types: [8] },
-            { text: "Harmony, comfort, being accepted as I am", types: [9] }
+            { text: "The drive to perfect and improve everything around me", types: [1] },
+            { text: "The need to be needed and to feel essential to others", types: [2] },
+            { text: "The drive to achieve and be seen as successful and valuable", types: [3] },
+            { text: "The need to be authentic and find my unique identity", types: [4] },
+            { text: "The drive to understand and be competent in my domain", types: [5] },
+            { text: "The need for security and guidance from trusted sources", types: [6] },
+            { text: "The drive to experience life fully and avoid being trapped", types: [7] },
+            { text: "The need to be strong, independent, and in control", types: [8] },
+            { text: "The drive to maintain peace and avoid conflict or disruption", types: [9] }
         ]
     }
 ];
 
 // Replace the existing scenarios with core motivation focused ones
 if (typeof allScenarios !== 'undefined') {
-    // Keep some original adventure-themed scenarios but prioritize core motivation ones
-    allScenarios = [...coreMotivationScenarios, ...allScenarios.slice(0, 4)];
+    // Completely replace with core motivation scenarios for accuracy
+    allScenarios = coreMotivationScenarios;
 } else {
     window.allScenarios = coreMotivationScenarios;
 }
