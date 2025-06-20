@@ -242,7 +242,71 @@ const bonusScenarios = [
     }
 ];
 
+// Additional relationship and tritype scenarios
+const relationshipScenarios = [
+    {
+        title: "The Relationship Conflict",
+        text: "Your partner consistently leaves dishes in the sink despite your requests to clean up. This has become a recurring source of tension. How do you handle it?",
+        choices: [
+            { text: "Create a cleaning schedule and explain why organization matters", types: [1] },
+            { text: "Start doing their dishes while gently mentioning how it would help you", types: [2] },
+            { text: "Suggest a compromise that works for both of your lifestyles", types: [3, 9] },
+            { text: "Feel hurt that they don't seem to care about what matters to you", types: [4] },
+            { text: "Research relationship advice and communication strategies", types: [5] },
+            { text: "Worry this means they don't respect you or the relationship", types: [6] },
+            { text: "Try to make it fun by doing dishes together with music", types: [7] },
+            { text: "Have a direct conversation about expectations and boundaries", types: [8] },
+            { text: "Avoid bringing it up to prevent an argument", types: [9] }
+        ]
+    },
+    {
+        title: "The Social Gathering",
+        text: "You're at a party where you don't know many people. Your friend who invited you is busy with other guests. How do you spend your time?",
+        choices: [
+            { text: "Find someone to have a meaningful conversation about shared interests", types: [1, 5] },
+            { text: "Look for someone who seems lonely and try to include them", types: [2] },
+            { text: "Network and meet people who might be useful connections", types: [3] },
+            { text: "Find a quiet corner and observe the interesting social dynamics", types: [4, 5] },
+            { text: "Engage in deep conversation with one or two interesting people", types: [5] },
+            { text: "Stay close to the few people you do know", types: [6] },
+            { text: "Mingle with different groups and keep the energy light and fun", types: [7] },
+            { text: "Take charge of organizing a group activity or game", types: [8] },
+            { text: "Go with the flow and join whatever conversation seems welcoming", types: [9] }
+        ]
+    },
+    {
+        title: "The Creative Project",
+        text: "You're working on a creative project that's important to you, but you're stuck and feeling frustrated. What's your approach to getting unstuck?",
+        choices: [
+            { text: "Step back and analyze what's not working, then create a systematic plan", types: [1] },
+            { text: "Ask friends or mentors for their input and encouragement", types: [2, 6] },
+            { text: "Research what successful people in this field have done", types: [3] },
+            { text: "Take a break and wait for inspiration to strike naturally", types: [4, 9] },
+            { text: "Study the technical aspects and gather more information", types: [5] },
+            { text: "Seek feedback from trusted advisors before proceeding", types: [6] },
+            { text: "Try a completely different approach or add new elements", types: [7] },
+            { text: "Push through with determination and extra effort", types: [8] },
+            { text: "Work on other parts of the project while letting this section develop", types: [9] }
+        ]
+    },
+    {
+        title: "The Life Transition",
+        text: "You're facing a major life change (new job, moving, relationship change). What's your primary focus during this transition?",
+        choices: [
+            { text: "Making sure everything is done correctly and according to plan", types: [1] },
+            { text: "Ensuring everyone affected by the change feels supported", types: [2] },
+            { text: "Positioning yourself for success in the new situation", types: [3] },
+            { text: "Processing the emotional significance of this life chapter", types: [4] },
+            { text: "Gathering information and preparing for all possibilities", types: [5] },
+            { text: "Seeking advice and support from trusted people", types: [6] },
+            { text: "Staying excited about new opportunities and adventures", types: [7] },
+            { text: "Taking control and making things happen on your timeline", types: [8] },
+            { text: "Going with the flow and adapting as things unfold", types: [9] }
+        ]
+    }
+];
+
 // Import enhanced scenarios if available
-let allScenarios = [...scenarios, ...bonusScenarios];
+let allScenarios = [...scenarios, ...bonusScenarios, ...relationshipScenarios];
 
 // This will be extended by enhanced-scenarios.js

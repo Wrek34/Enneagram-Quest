@@ -239,17 +239,61 @@ class EnneagramWingsSystem {
     }
 
     getRelationshipInsights(mainType, wing) {
-        // Simplified relationship insights based on type and wing
         const insights = {
-            1: 'You value integrity and improvement in relationships. You may need to practice acceptance and flexibility.',
-            2: 'You are naturally caring and supportive. Remember to express your own needs and boundaries.',
-            3: 'You bring energy and motivation to relationships. Balance achievement with authentic connection.',
-            4: 'You seek deep, meaningful connections. Practice stability and consistency in relationships.',
-            5: 'You value independence and understanding. Work on emotional expression and engagement.',
-            6: 'You are loyal and committed. Trust your own judgment while valuing others\' input.',
-            7: 'You bring joy and adventure to relationships. Practice commitment and depth.',
-            8: 'You are protective and strong. Balance power with vulnerability and gentleness.',
-            9: 'You create harmony and acceptance. Practice assertiveness and expressing your needs.'
+            1: {
+                strengths: ['High standards for relationships', 'Reliable and trustworthy partner', 'Committed to growth and improvement', 'Clear about values and boundaries'],
+                challenges: ['Can be critical of partner\'s flaws', 'May struggle with accepting imperfection', 'Tendency to lecture or correct', 'Difficulty expressing anger directly'],
+                tips: ['Practice acceptance and patience', 'Express appreciation more often', 'Allow space for mistakes and learning', 'Communicate needs without criticism'],
+                compatibility: 'Best with types who appreciate structure (6, 2) and can handle directness (8, 5)'
+            },
+            2: {
+                strengths: ['Naturally caring and supportive', 'Excellent at reading emotional needs', 'Creates warm, nurturing environment', 'Puts relationship first'],
+                challenges: ['May neglect own needs', 'Can become possessive or clingy', 'Difficulty receiving help', 'May manipulate through giving'],
+                tips: ['Practice self-care and boundaries', 'Ask directly for what you need', 'Allow others to give to you', 'Maintain your own interests and friendships'],
+                compatibility: 'Thrives with appreciative types (3, 7) and those who need support (4, 6)'
+            },
+            3: {
+                strengths: ['Motivating and inspiring partner', 'Brings energy and ambition', 'Adaptable to partner\'s needs', 'Creates exciting shared goals'],
+                challenges: ['May prioritize image over authenticity', 'Can be emotionally unavailable', 'Tendency to compete with partner', 'May neglect relationship for work'],
+                tips: ['Schedule quality time together', 'Share vulnerable feelings regularly', 'Celebrate partner\'s achievements', 'Focus on being rather than doing'],
+                compatibility: 'Works well with supportive types (2, 9) and fellow achievers (1, 8)'
+            },
+            4: {
+                strengths: ['Brings depth and authenticity', 'Emotionally expressive and honest', 'Creates meaningful connections', 'Appreciates partner\'s uniqueness'],
+                challenges: ['Mood swings affect relationship', 'May idealize then devalue partner', 'Can be overly dramatic', 'Tendency toward melancholy'],
+                tips: ['Practice emotional regulation', 'Appreciate ordinary moments', 'Communicate needs clearly', 'Focus on partner\'s positive qualities'],
+                compatibility: 'Connects deeply with understanding types (5, 9) and fellow feelers (2, 6)'
+            },
+            5: {
+                strengths: ['Thoughtful and observant partner', 'Respects independence and space', 'Brings calm, steady presence', 'Excellent listener and advisor'],
+                challenges: ['May withdraw when stressed', 'Difficulty expressing emotions', 'Can seem detached or cold', 'May avoid conflict'],
+                tips: ['Share feelings regularly', 'Engage in partner\'s interests', 'Practice physical affection', 'Address issues before withdrawing'],
+                compatibility: 'Pairs well with patient types (2, 9) and fellow thinkers (1, 6)'
+            },
+            6: {
+                strengths: ['Loyal and committed partner', 'Excellent team player', 'Supportive during difficulties', 'Values security and stability'],
+                challenges: ['May be anxious or suspicious', 'Can project fears onto partner', 'Tendency to seek constant reassurance', 'May test partner\'s loyalty'],
+                tips: ['Practice self-soothing techniques', 'Communicate fears openly', 'Trust partner\'s commitment', 'Focus on positive possibilities'],
+                compatibility: 'Feels secure with steady types (1, 9) and understanding partners (2, 5)'
+            },
+            7: {
+                strengths: ['Brings joy and adventure', 'Optimistic and enthusiastic', 'Keeps relationship exciting', 'Excellent at reframing problems'],
+                challenges: ['May avoid difficult conversations', 'Can be commitment-phobic', 'Tendency to escape when bored', 'May minimize partner\'s pain'],
+                tips: ['Stay present during conflicts', 'Practice deep listening', 'Commit to working through issues', 'Balance fun with responsibility'],
+                compatibility: 'Enjoys dynamic relationships with types 3, 8 and appreciates grounding from 1, 5'
+            },
+            8: {
+                strengths: ['Protective and loyal partner', 'Direct and honest communication', 'Takes charge during crises', 'Passionate and intense'],
+                challenges: ['Can be controlling or dominating', 'May struggle with vulnerability', 'Tendency toward anger', 'May intimidate sensitive partners'],
+                tips: ['Practice gentleness and patience', 'Share vulnerable feelings', 'Ask rather than demand', 'Appreciate partner\'s softer qualities'],
+                compatibility: 'Respects strong partners (1, 3) and appreciates gentle balance from 2, 9'
+            },
+            9: {
+                strengths: ['Creates peaceful, harmonious environment', 'Accepting and non-judgmental', 'Excellent mediator', 'Stable and reliable presence'],
+                challenges: ['May avoid conflict at all costs', 'Can be passive-aggressive', 'Tendency to merge with partner', 'May neglect own needs and opinions'],
+                tips: ['Express your needs and preferences', 'Address conflicts directly', 'Maintain your own interests', 'Practice assertiveness skills'],
+                compatibility: 'Harmonizes well with most types, especially appreciates direction from 1, 8'
+            }
         };
 
         return insights[mainType];
@@ -371,9 +415,32 @@ class EnneagramWingsSystem {
             <div class="life-insights">
                 <h4>💡 Life Applications</h4>
                 <div class="insights-grid">
-                    <div class="insight-section">
+                    <div class="insight-section relationships-section">
                         <h5>🤝 Relationships:</h5>
-                        <p>${analysis.relationships}</p>
+                        <div class="relationship-details">
+                            <div class="relationship-strengths">
+                                <h6>💪 Relationship Strengths:</h6>
+                                <ul>
+                                    ${analysis.relationships.strengths.map(strength => `<li>${strength}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="relationship-challenges">
+                                <h6>⚠️ Potential Challenges:</h6>
+                                <ul>
+                                    ${analysis.relationships.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="relationship-tips">
+                                <h6>💡 Tips for Growth:</h6>
+                                <ul>
+                                    ${analysis.relationships.tips.map(tip => `<li>${tip}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="relationship-compatibility">
+                                <h6>💕 Compatibility:</h6>
+                                <p>${analysis.relationships.compatibility}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="insight-section">
                         <h5>💼 Career Paths:</h5>
