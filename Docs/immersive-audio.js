@@ -378,35 +378,7 @@ class ImmersiveAudioSystem {
         localStorage.setItem('enneagram-volume', volume.toString());
     }
 
-    // Add volume control to HUD
-    addVolumeControl() {
-        // Remove any existing volume controls
-        document.querySelectorAll('.volume-control').forEach(control => control.remove());
-        
-        const volumeControl = document.createElement('div');
-        volumeControl.className = 'volume-control';
-        volumeControl.innerHTML = `
-            <label for="volume-slider">🔊</label>
-            <input type="range" id="volume-slider" min="0" max="100" value="30">
-        `;
 
-        const hudSection = document.querySelector('.hud-section:last-child');
-        if (hudSection) {
-            hudSection.appendChild(volumeControl);
-        }
-
-        const slider = document.getElementById('volume-slider');
-        if (slider) {
-            slider.addEventListener('input', (e) => {
-                const volume = e.target.value / 100;
-                this.setMasterVolume(volume);
-                // Also update game sound setting
-                if (window.game) {
-                    window.game.soundEnabled = volume > 0;
-                }
-            });
-        }
-    }
 }
 
 // Initialize immersive audio when game is ready
@@ -414,7 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const initAudio = () => {
         if (window.game) {
             const audioSystem = new ImmersiveAudioSystem(window.game);
-            audioSystem.addVolumeControl();
             window.audioSystem = audioSystem;
             console.log('🎵 Immersive audio system loaded');
         } else {
