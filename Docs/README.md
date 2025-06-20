@@ -26,8 +26,8 @@ An immersive, adventure-style personality assessment game that helps users disco
 - **Character Progression** - Multi-level system with experience points
 - **Stat Development** - Wisdom, Courage, and Compassion attributes
 - **Dynamic Inventory** - Collectible magical items throughout your quest
-- **Achievement System** - 15+ unlockable achievements with persistent tracking
-- **Enhanced Save System** - Multiple save slots with export/import
+- **Achievement System** - 15+ unlockable achievements with session tracking
+- **Meaningful Avatars** - Six unique personas that affect gameplay
 - **Performance Optimization** - Adaptive quality and memory management
 
 ### 🎨 Immersive Audio & Visuals
@@ -60,7 +60,7 @@ An immersive, adventure-style personality assessment game that helps users disco
 - **Guided Tour System** - Interactive tutorial for new users
 - **Skip Links** - Quick navigation to main content
 - **Reduced Motion Support** - Respects user motion preferences
-- **Volume Controls** - Functional audio control with persistence
+- **Streamlined Interface** - Clean, distraction-free experience
 
 ## 🚀 Quick Start Guide
 

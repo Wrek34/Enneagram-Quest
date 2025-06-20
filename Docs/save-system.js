@@ -8,48 +8,17 @@ class SaveSystem {
     }
 
     initializeSaveSystem() {
-        this.setupAutoSave();
-        this.addSaveButtons();
-        this.loadGameState();
-        this.setupCloudSync();
+        // Save system disabled for streamlined experience
+        console.log('💾 Save system disabled - streamlined single-session experience');
     }
 
     setupAutoSave() {
-        // Auto-save every 30 seconds
-        setInterval(() => {
-            this.autoSave();
-        }, this.autoSaveInterval);
 
-        // Save on page unload
-        window.addEventListener('beforeunload', () => {
-            this.saveGame();
-        });
 
-        // Save after each choice
-        const originalSelectChoice = this.game.selectChoice.bind(this.game);
-        this.game.selectChoice = (choiceElement) => {
-            originalSelectChoice(choiceElement);
-            setTimeout(() => {
-                this.saveGame();
-            }, 1000);
-        };
+
     }
 
-    addSaveButtons() {
-        // Add save/load buttons to quick actions
-        setTimeout(() => {
-            const quickActions = document.querySelector('.quick-actions');
-            if (quickActions) {
-                const saveBtn = document.createElement('button');
-                saveBtn.className = 'quick-btn';
-                saveBtn.innerHTML = '💾';
-                saveBtn.title = 'Save Game';
-                saveBtn.onclick = () => this.showSaveMenu();
-                
-                quickActions.appendChild(saveBtn);
-            }
-        }, 2000);
-    }
+
 
     showSaveMenu() {
         const saves = this.getAllSaves();
@@ -282,11 +251,7 @@ class SaveSystem {
         input.click();
     }
 
-    autoSave() {
-        if (this.game.currentScenario > 0) {
-            this.saveGame();
-        }
-    }
+
 
     setupCloudSync() {
         // Basic cloud sync using localStorage backup
