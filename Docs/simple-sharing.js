@@ -106,9 +106,13 @@ class SimpleSharing {
                             <span class="platform-icon">in</span>
                             LinkedIn
                         </button>
-                        <button class="platform-btn whatsapp" onclick="simpleSharing.shareToWhatsApp('${customMessage}')">
-                            <span class="platform-icon">💬</span>
-                            WhatsApp
+                        <button class="platform-btn tiktok" onclick="simpleSharing.shareToTikTok('${customMessage}')">
+                            <span class="platform-icon">🎵</span>
+                            TikTok
+                        </button>
+                        <button class="platform-btn instagram" onclick="simpleSharing.shareToInstagram('${customMessage}')">
+                            <span class="platform-icon">📷</span>
+                            Instagram
                         </button>
                         <button class="platform-btn email" onclick="simpleSharing.shareViaEmail('${customMessage}')">
                             <span class="platform-icon">📧</span>
@@ -142,7 +146,7 @@ class SimpleSharing {
     }
 
     shareToX(message) {
-        const text = `${message}\\n\\n🏛️ Play Enneagram Quest - An adventure-style personality test!\\n\\n#EnneagramQuest #PersonalityTest #Adventure`;
+        const text = `${message}\n\n🏛️ Play Enneagram Quest - An adventure-style personality test!\n\n#EnneagramQuest #PersonalityTest #Adventure`;
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(this.gameUrl)}`;
         window.open(url, '_blank', 'width=600,height=400');
         this.closeModal();
@@ -157,21 +161,42 @@ class SimpleSharing {
     shareToLinkedIn(message) {
         const title = 'Enneagram Quest - Adventure-Style Personality Test';
         const summary = `${message} Discover your Enneagram type through an immersive adventure game!`;
-        const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(this.gameUrl)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
+        const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(this.gameUrl)}`;
         window.open(url, '_blank', 'width=600,height=400');
         this.closeModal();
     }
 
-    shareToWhatsApp(message) {
-        const text = `${message}\\n\\n🏛️ Try Enneagram Quest: ${this.gameUrl}`;
-        const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
+    shareToTikTok(message) {
+        const text = `${message}\n\n🏛️ Try Enneagram Quest: ${this.gameUrl}\n\n#EnneagramQuest #PersonalityTest #SelfDiscovery #Adventure`;
+        try {
+            navigator.clipboard.writeText(text).then(() => {
+                this.showNotification('TikTok caption copied! Open TikTok to create your video 🎵');
+                window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+            });
+        } catch (error) {
+            window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+            this.showNotification('Visit our TikTok @enneagram.kaci to share! 🎵');
+        }
+        this.closeModal();
+    }
+
+    shareToInstagram(message) {
+        const text = `${message}\n\n🏛️ Try Enneagram Quest: ${this.gameUrl}\n\n#EnneagramQuest #PersonalityTest #SelfDiscovery #Adventure`;
+        try {
+            navigator.clipboard.writeText(text).then(() => {
+                this.showNotification('Instagram caption copied! Open Instagram to create your post 📷');
+                window.open('https://instagram.com/hrenneagram.kaci', '_blank');
+            });
+        } catch (error) {
+            window.open('https://instagram.com/hrenneagram.kaci', '_blank');
+            this.showNotification('Visit our Instagram @hrenneagram.kaci to share! 📷');
+        }
         this.closeModal();
     }
 
     shareViaEmail(message) {
         const subject = 'Try this amazing personality adventure game!';
-        const body = `${message}\\n\\nI thought you'd enjoy this immersive personality test that's like playing an adventure game!\\n\\n🏛️ Play Enneagram Quest: ${this.gameUrl}\\n\\nIt combines personality assessment with RPG elements, achievements, and beautiful audio. Let me know what personality type you get!`;
+        const body = `${message}\n\nI thought you'd enjoy this immersive personality test that's like playing an adventure game!\n\n🏛️ Play Enneagram Quest: ${this.gameUrl}\n\nIt combines personality assessment with RPG elements, achievements, and beautiful audio. Let me know what personality type you get!`;
         const url = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = url;
         this.closeModal();

@@ -90,6 +90,11 @@
     border-color: #e74c3c;
 }
 
+.social-btn.instagram:hover {
+    color: #E4405F;
+    border-color: #E4405F;
+}
+
 /* Social Icons */
 .social-icon {
     width: 20px;

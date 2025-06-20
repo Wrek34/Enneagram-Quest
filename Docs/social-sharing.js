@@ -66,6 +66,12 @@ class SocialSharingSystem {
                     </svg>
                     TikTok
                 </button>
+                <button class="social-btn instagram" onclick="socialSystem.shareToInstagram()">
+                    <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="#E4405F" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                </button>
             </div>
             <div class="share-stats">
                 <p>Join thousands who've discovered their Enneagram type!</p>
@@ -148,11 +154,9 @@ class SocialSharingSystem {
         const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
         const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
         
-        const text = `🏛️ I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest!\n\n${typeData.description.substring(0, 100)}...\n\n✨ This adventure-style personality game is amazing! Discover YOUR type through an epic quest with RPG elements, achievements & immersive audio!\n\n🎮 Try it yourself:`;
-        const url = 'https://wrek34.github.io/Enneagram-Quest';
-        const hashtags = 'EnneagramQuest,PersonalityTest,SelfDiscovery,Enneagram,Adventure';
+        const text = `🏛️ I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest!\n\n${typeData.description.substring(0, 100)}...\n\n✨ This adventure-style personality game is amazing! Discover YOUR type through an epic quest with RPG elements, achievements & immersive audio!\n\n🎮 Try it yourself: https://wrek34.github.io/Enneagram-Quest\n\n#EnneagramQuest #PersonalityTest #SelfDiscovery #Enneagram #Adventure`;
         
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags}`;
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
         window.open(twitterUrl, '_blank', 'width=600,height=400');
         
         this.trackShare('x');
@@ -178,11 +182,8 @@ class SocialSharingSystem {
         const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
         const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
         
-        const title = 'Enneagram Quest - Adventure-Style Personality Discovery';
-        const summary = `I just discovered I'm ${typeData.title} (Type ${wingText}) through Enneagram Quest! ${typeData.description.substring(0, 120)}... This immersive game combines personality assessment with RPG adventure. What's your type?`;
         const url = 'https://wrek34.github.io/Enneagram-Quest';
-        
-        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
+        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
         window.open(linkedInUrl, '_blank', 'width=600,height=400');
         
         this.trackShare('linkedin');
@@ -360,20 +361,46 @@ class SocialSharingSystem {
         const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
         const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
         
-        const text = `I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest! 🏛️ This adventure-style personality game is incredible! What's your type? Try it: https://wrek34.github.io/Enneagram-Quest #EnneagramQuest #PersonalityTest #Enneagram #SelfDiscovery`;
+        const text = `I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest! 🏛️ This adventure-style personality game is incredible! What's your type? Try it: https://wrek34.github.io/Enneagram-Quest #EnneagramQuest #PersonalityTest #Enneagram #SelfDiscovery #Adventure`;
         
         // TikTok doesn't have a direct share URL, so we copy the text for users to paste
-        navigator.clipboard.writeText(text).then(() => {
-            this.showNotification('TikTok caption copied! Open TikTok to create your video 🎤', 'success');
-            // Also open TikTok web
-            window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
-        }).catch(() => {
+        try {
+            navigator.clipboard.writeText(text).then(() => {
+                this.showNotification('TikTok caption copied! Open TikTok to create your video 🎵', 'success');
+                // Also open TikTok web
+                window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
+            });
+        } catch (error) {
             // Fallback
             window.open('https://www.tiktok.com/@enneagram.kaci', '_blank');
-            this.showNotification('Visit our TikTok @enneagram.kaci to share! 🎤', 'info');
-        });
+            this.showNotification('Visit our TikTok @enneagram.kaci to share! 🎵', 'info');
+        }
         
         this.trackShare('tiktok');
+    }
+
+    shareToInstagram() {
+        const dominantType = this.game.calculateDominantType();
+        const typeData = enneagramTypes[dominantType];
+        const wingInfo = this.game.wingsSystem ? this.game.wingsSystem.calculateWings(dominantType, this.game.typeScores) : null;
+        const wingText = wingInfo && wingInfo.dominantWing ? `${dominantType}w${wingInfo.dominantWing}` : dominantType;
+        
+        const text = `I just discovered I'm ${typeData.title} (Type ${wingText}) in Enneagram Quest! 🏛️\n\nThis adventure-style personality game is amazing! Discover YOUR type through an epic quest with RPG elements, achievements & immersive audio!\n\n🎮 Try it yourself: https://wrek34.github.io/Enneagram-Quest\n\n#EnneagramQuest #PersonalityTest #Enneagram #SelfDiscovery #Adventure #Psychology`;
+        
+        // Instagram doesn't have a direct share URL, so we copy the text for users to paste
+        try {
+            navigator.clipboard.writeText(text).then(() => {
+                this.showNotification('Instagram caption copied! Open Instagram to create your post 📷', 'success');
+                // Also open Instagram web
+                window.open('https://instagram.com/hrenneagram.kaci', '_blank');
+            });
+        } catch (error) {
+            // Fallback
+            window.open('https://instagram.com/hrenneagram.kaci', '_blank');
+            this.showNotification('Visit our Instagram @hrenneagram.kaci to share! 📷', 'info');
+        }
+        
+        this.trackShare('instagram');
     }
 
     followTikTok() {

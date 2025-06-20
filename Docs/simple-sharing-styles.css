@@ -217,13 +217,23 @@
     color: white;
 }
 
-.platform-btn.whatsapp {
-    border-color: #25d366;
-    color: #25d366;
+.platform-btn.tiktok {
+    border-color: #ff0050;
+    color: #ff0050;
 }
 
-.platform-btn.whatsapp:hover {
-    background: #25d366;
+.platform-btn.tiktok:hover {
+    background: #ff0050;
+    color: white;
+}
+
+.platform-btn.instagram {
+    border-color: #E4405F;
+    color: #E4405F;
+}
+
+.platform-btn.instagram:hover {
+    background: #E4405F;
     color: white;
 }
 
