@@ -92,7 +92,7 @@ header p {
 .progress-bar {
     background: #ecf0f1;
     border-radius: 10px;
-    height: 24px;
+    height: 30px;
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
@@ -112,10 +112,11 @@ header p {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #2c3e50;
     white-space: nowrap;
     text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    line-height: 1;
 }
 
 /* Scenario content */
