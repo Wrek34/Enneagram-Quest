@@ -29,7 +29,7 @@ class UXEnhancements {
             </div>
             <div class="progress-details">
                 <span class="current-step">Step 1</span>
-                <span class="total-steps">of 12</span>
+                <span class="total-steps">of 16</span>
             </div>
         `;
 
@@ -48,7 +48,7 @@ class UXEnhancements {
 
     updateProgress() {
         const current = this.game.currentScenario + 1;
-        const total = this.game.totalScenarios || 12;
+        const total = this.game.totalScenarios || 16;
         const percentage = Math.round((current / total) * 100);
 
         const progressFill = document.getElementById('progress-fill');
@@ -377,7 +377,7 @@ class UXEnhancements {
             originalUpdateProgress();
             
             const current = this.game.currentScenario + 1;
-            const total = this.game.totalScenarios || 12;
+            const total = this.game.totalScenarios || 16;
             this.announceToScreenReader(`Progress: Step ${current} of ${total}`);
         };
     }

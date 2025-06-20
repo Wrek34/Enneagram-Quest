@@ -242,6 +242,70 @@ const bonusScenarios = [
     }
 ];
 
+// Philosophical and ethical scenarios
+const philosophicalScenarios = [
+    {
+        title: "The Greater Good Dilemma",
+        text: "A runaway trolley is heading toward five people on the tracks. You can pull a lever to divert it to another track, but this will kill one person instead of five. What guides your decision?",
+        choices: [
+            { text: "Pull the lever - saving five lives is mathematically the right choice", types: [1, 5] },
+            { text: "Consider what would cause the least suffering for the families involved", types: [2, 4] },
+            { text: "Make the decision that most people would consider heroic", types: [3] },
+            { text: "Feel paralyzed by the moral weight of actively causing someone's death", types: [4, 6] },
+            { text: "Analyze all possible outcomes and their probabilities before deciding", types: [5] },
+            { text: "Seek guidance from moral authorities or established ethical frameworks", types: [6] },
+            { text: "Look for a creative third option that might save everyone", types: [7] },
+            { text: "Take decisive action to minimize total harm, accepting responsibility", types: [8] },
+            { text: "Refuse to actively participate in causing anyone's death", types: [9, 1] }
+        ]
+    },
+    {
+        title: "The Truth vs. Kindness Paradox",
+        text: "Your elderly neighbor asks about their terminally ill pet that you know won't recover. The vet says the pet is suffering, but your neighbor finds great comfort in hope. How do you respond?",
+        choices: [
+            { text: "Tell them the complete truth - they deserve to know the reality", types: [1, 8] },
+            { text: "Focus on what would bring them the most comfort in this difficult time", types: [2] },
+            { text: "Frame the truth in the most positive way possible", types: [3, 7] },
+            { text: "Share your own feelings about the situation honestly", types: [4] },
+            { text: "Provide factual information and let them draw their own conclusions", types: [5] },
+            { text: "Suggest they speak with the vet directly for professional guidance", types: [6] },
+            { text: "Help them focus on making the pet's remaining time as good as possible", types: [7, 2] },
+            { text: "Be direct about the reality while offering your support", types: [8] },
+            { text: "Listen to their hopes while gently preparing them for what's coming", types: [9] }
+        ]
+    },
+    {
+        title: "The Authenticity Challenge",
+        text: "You're offered a prestigious job that would significantly improve your life, but it requires you to regularly promote ideas you personally disagree with. The role would also help many people. What matters most?",
+        choices: [
+            { text: "Decline - maintaining personal integrity is non-negotiable", types: [1, 4] },
+            { text: "Consider how you could help people despite the philosophical conflicts", types: [2] },
+            { text: "Take the role and find ways to gradually influence positive change", types: [3, 8] },
+            { text: "Feel torn between personal authenticity and practical benefits", types: [4] },
+            { text: "Research whether there are ways to minimize the ethical conflicts", types: [5] },
+            { text: "Seek advice from trusted mentors about navigating this dilemma", types: [6] },
+            { text: "Look for creative ways to stay true to yourself within the role", types: [7] },
+            { text: "Take the position and work to change the system from within", types: [8] },
+            { text: "Try to find a compromise that doesn't force you to choose extremes", types: [9] }
+        ]
+    },
+    {
+        title: "The Legacy Question",
+        text: "You have the opportunity to make a decision that will significantly impact future generations, but it requires personal sacrifice and may not be appreciated in your lifetime. What drives your choice?",
+        choices: [
+            { text: "Do what's objectively right for the future, regardless of recognition", types: [1] },
+            { text: "Focus on what will help the most people, especially the vulnerable", types: [2] },
+            { text: "Consider what will create the most positive lasting impact", types: [3] },
+            { text: "Choose what feels most meaningful and authentic to your values", types: [4] },
+            { text: "Analyze the long-term consequences and probabilities carefully", types: [5] },
+            { text: "Seek wisdom from others who have faced similar decisions", types: [6] },
+            { text: "Find an approach that creates positive change while maintaining hope", types: [7] },
+            { text: "Take bold action for the future, accepting personal costs", types: [8] },
+            { text: "Look for solutions that benefit everyone without creating conflict", types: [9] }
+        ]
+    }
+];
+
 // Additional relationship and tritype scenarios
 const relationshipScenarios = [
     {
@@ -307,6 +371,6 @@ const relationshipScenarios = [
 ];
 
 // Import enhanced scenarios if available
-let allScenarios = [...scenarios, ...bonusScenarios, ...relationshipScenarios];
+let allScenarios = [...scenarios, ...bonusScenarios, ...philosophicalScenarios, ...relationshipScenarios];
 
 // This will be extended by enhanced-scenarios.js

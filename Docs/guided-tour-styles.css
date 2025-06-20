@@ -89,8 +89,14 @@
 
 .tooltip-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+#tour-close {
+    margin-left: auto;
 }
 
 .tour-btn.primary {
