@@ -9,7 +9,7 @@ An immersive, adventure-style personality assessment game that helps users disco
 
 ## 🎮 Live Demo
 
-[Play Enneagram Quest](https://your-username.github.io/enneagram-quest) *(Update with your GitHub Pages URL)*
+[Play Enneagram Quest](https://wrek34.github.io/enneagram-quest)
 
 ## ✨ Revolutionary Features
 
