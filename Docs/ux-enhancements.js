@@ -166,9 +166,7 @@ class UXEnhancements {
             <button class="quick-btn" onclick="uxEnhancements.pauseGame()" title="Pause Game">
                 ⏸️
             </button>
-            <button class="quick-btn" onclick="uxEnhancements.showJournal()" title="View Journal">
-                📖
-            </button>
+
             <button class="quick-btn" onclick="uxEnhancements.showStats()" title="View Stats">
                 📊
             </button>

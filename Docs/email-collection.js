@@ -65,21 +65,30 @@ class EmailCollectionSystem {
             const type = document.getElementById('user-type').value;
             const completionDate = document.getElementById('completion-date').value;
             
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
             submitBtn.textContent = 'Signing up...';
             submitBtn.disabled = true;
 
-            // Submit email in background
-            this.submitEmail({
-                email: email,
-                enneagramType: type,
-                completionDate: completionDate,
-                source: 'Enneagram Quest Game'
-            });
-            
-            // Always show success after short delay
-            setTimeout(() => {
+            try {
+                // Submit email and wait for response
+                await this.submitEmail({
+                    email: email,
+                    enneagramType: type,
+                    completionDate: completionDate,
+                    source: 'Enneagram Quest Game'
+                });
+                
+                // Show success and close popup
                 this.showSuccessMessage();
-            }, 800);
+            } catch (error) {
+                console.error('Email submission failed:', error);
+                // Still show success since email is stored locally
+                this.showSuccessMessage();
+            }
         });
     }
 
@@ -89,32 +98,25 @@ class EmailCollectionSystem {
         // Always store locally first
         this.storeEmailLocally(data);
         
-        try {
-            // Submit to Formspree
-            const response = await fetch(this.apiEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+        // Submit to Formspree
+        const response = await fetch(this.apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
-            const result = await response.json();
-            console.log('📧 Formspree response:', result);
-            
-            if (!response.ok) {
-                console.error('📧 Formspree error:', result);
-                throw new Error(`Submission failed: ${result.error || 'Unknown error'}`);
-            }
-            
-            console.log('📧 Email successfully submitted to Formspree');
-            return result;
-        } catch (error) {
-            console.error('📧 Email submission error:', error);
-            // Email is still stored locally, so don't throw error
-            return { success: false, error: error.message };
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('📧 Formspree error:', errorText);
+            throw new Error(`Submission failed: ${response.status}`);
         }
+        
+        const result = await response.json();
+        console.log('📧 Email successfully submitted to Formspree:', result);
+        return result;
     }
 
     storeEmailLocally(data) {

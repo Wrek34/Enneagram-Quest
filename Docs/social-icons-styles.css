@@ -178,13 +178,13 @@
 }
 
 .journal-entry {
-    background: #f8f9fa;
+    background: #ffffff;
     border-radius: 15px;
     padding: 1.5rem;
     margin-bottom: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-left: 6px solid #3498db;
-    border: 2px solid #e9ecef;
+    border: 2px solid #d0d0d0;
 }
 
 .entry-header {
@@ -213,21 +213,21 @@
 }
 
 .entry-content h4 {
-    color: #2c3e50;
+    color: #1a1a1a;
     margin-bottom: 0.8rem;
     font-size: 1.3rem;
     font-weight: bold;
 }
 
 .entry-content p {
-    color: #2c3e50;
+    color: #1a1a1a;
     line-height: 1.6;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .entry-content em {
-    color: #34495e;
+    color: #2c3e50;
     font-style: italic;
     font-weight: bold;
 }

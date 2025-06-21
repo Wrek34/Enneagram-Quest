@@ -222,17 +222,7 @@ class AdvancedGameFeatures {
             });
         };
 
-        // Add journal button to HUD
-        const journalBtn = document.createElement('button');
-        journalBtn.className = 'hud-btn';
-        journalBtn.textContent = '📖';
-        journalBtn.title = 'Quest Journal';
-        journalBtn.addEventListener('click', () => this.showJournal());
-        
-        const hudSection = document.querySelector('.hud-section:last-child');
-        if (hudSection) {
-            hudSection.appendChild(journalBtn);
-        }
+        // Journal button removed
 
         // Record entries
         const originalNextScenario = this.game.nextScenario.bind(this.game);
