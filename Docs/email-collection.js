@@ -31,7 +31,7 @@ class EmailCollectionSystem {
                     <h3>🌟 Discover More About Your Type!</h3>
                     <p>Get personalized insights, growth tips, and exclusive Enneagram content</p>
                 </div>
-                <form class="email-signup-form" id="email-signup-form">
+                <div class="email-signup-form" id="email-signup-form">
                     <div class="form-group">
                         <input type="email" id="user-email" placeholder="Enter your email address" required>
                         <input type="hidden" id="user-type" value="${this.game.calculateDominantType()}">
@@ -43,7 +43,7 @@ class EmailCollectionSystem {
                         <div class="benefit">🎯 Type-specific challenges and exercises</div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="signup-btn">Get My Insights</button>
+                        <button type="button" class="signup-btn">Get My Insights</button>
                         <button type="button" class="skip-btn" onclick="this.parentElement.parentElement.parentElement.parentElement.remove()">Maybe Later</button>
                     </div>
                 </form>
@@ -55,8 +55,9 @@ class EmailCollectionSystem {
     }
 
     setupFormSubmission() {
-        const form = document.getElementById('email-signup-form');
-        form.addEventListener('submit', async (e) => {
+        const submitBtn = document.querySelector('.signup-btn');
+        
+        submitBtn.addEventListener('click', async (e) => {
             e.preventDefault();
             e.stopPropagation();
             
@@ -64,25 +65,21 @@ class EmailCollectionSystem {
             const type = document.getElementById('user-type').value;
             const completionDate = document.getElementById('completion-date').value;
             
-            const submitBtn = form.querySelector('.signup-btn');
             submitBtn.textContent = 'Signing up...';
             submitBtn.disabled = true;
 
-            try {
-                await this.submitEmail({
-                    email: email,
-                    enneagramType: type,
-                    completionDate: completionDate,
-                    source: 'Enneagram Quest Game'
-                });
-                
-                this.showSuccessMessage();
-            } catch (error) {
-                console.error('Signup error:', error);
-                this.showSuccessMessage(); // Show success anyway
-            }
+            // Submit email in background
+            this.submitEmail({
+                email: email,
+                enneagramType: type,
+                completionDate: completionDate,
+                source: 'Enneagram Quest Game'
+            });
             
-            return false;
+            // Always show success after short delay
+            setTimeout(() => {
+                this.showSuccessMessage();
+            }, 800);
         });
     }
 
