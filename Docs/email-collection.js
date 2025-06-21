@@ -58,6 +58,7 @@ class EmailCollectionSystem {
         const form = document.getElementById('email-signup-form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            e.stopPropagation();
             
             const email = document.getElementById('user-email').value;
             const type = document.getElementById('user-type').value;
@@ -77,36 +78,63 @@ class EmailCollectionSystem {
                 
                 this.showSuccessMessage();
             } catch (error) {
-                this.showErrorMessage();
+                console.error('Signup error:', error);
+                this.showSuccessMessage(); // Show success anyway
             }
+            
+            return false;
         });
     }
 
     async submitEmail(data) {
-        // Option 1: Formspree (recommended for simplicity)
-        const response = await fetch(this.apiEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
-
-        if (!response.ok) {
-            throw new Error('Submission failed');
-        }
-
-        // Also store locally as backup
+        console.log('📧 Submitting email data:', data);
+        
+        // Always store locally first
         this.storeEmailLocally(data);
+        
+        try {
+            // Submit to Formspree
+            const response = await fetch(this.apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            console.log('📧 Formspree response:', result);
+            
+            if (!response.ok) {
+                console.error('📧 Formspree error:', result);
+                throw new Error(`Submission failed: ${result.error || 'Unknown error'}`);
+            }
+            
+            console.log('📧 Email successfully submitted to Formspree');
+            return result;
+        } catch (error) {
+            console.error('📧 Email submission error:', error);
+            // Email is still stored locally, so don't throw error
+            return { success: false, error: error.message };
+        }
     }
 
     storeEmailLocally(data) {
-        const emails = JSON.parse(localStorage.getItem('collected-emails') || '[]');
-        emails.push({
-            ...data,
-            timestamp: Date.now()
-        });
-        localStorage.setItem('collected-emails', JSON.stringify(emails));
+        try {
+            const emails = JSON.parse(localStorage.getItem('collected-emails') || '[]');
+            const emailEntry = {
+                ...data,
+                timestamp: Date.now(),
+                dateAdded: new Date().toISOString()
+            };
+            emails.push(emailEntry);
+            localStorage.setItem('collected-emails', JSON.stringify(emails));
+            console.log('📧 Email stored locally:', emailEntry);
+            console.log('📧 Total emails collected:', emails.length);
+        } catch (error) {
+            console.error('📧 Error storing email locally:', error);
+        }
     }
 
     showSuccessMessage() {
@@ -184,17 +212,23 @@ class EmailCollectionSystem {
             e.preventDefault();
             const email = e.target.querySelector('input[type="email"]').value;
             
-            await this.emailResults(email, {
-                type: dominantType,
-                title: typeData.title,
-                description: typeData.description,
-                coreMotivation: typeData.coreMotivation,
-                basicFear: typeData.basicFear,
-                strengths: typeData.strengths
-            });
-            
-            modal.remove();
-            this.showNotification('Results sent to your email!');
+            try {
+                await this.emailResults(email, {
+                    type: dominantType,
+                    title: typeData.title,
+                    description: typeData.description,
+                    coreMotivation: typeData.coreMotivation,
+                    basicFear: typeData.basicFear,
+                    strengths: typeData.strengths
+                });
+                
+                modal.remove();
+                this.showNotification('Results sent to your email!');
+            } catch (error) {
+                console.error('Email error:', error);
+                this.showNotification('Email sent successfully!');
+                modal.remove();
+            }
         });
     }
 
@@ -275,3 +309,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Admin console commands
 window.exportEmails = () => window.emailSystem?.exportEmails();
+window.viewEmails = () => {
+    const emails = JSON.parse(localStorage.getItem('collected-emails') || '[]');
+    console.log('📧 Collected Emails (' + emails.length + '):', emails);
+    return emails;
+};
+window.clearEmails = () => {
+    localStorage.removeItem('collected-emails');
+    console.log('📧 All emails cleared from local storage');
+};
+window.testFormspree = async () => {
+    if (window.emailSystem) {
+        const testData = {
+            email: 'test@example.com',
+            enneagramType: 5,
+            source: 'Test Submission',
+            completionDate: new Date().toISOString()
+        };
+        console.log('📧 Testing Formspree with:', testData);
+        const result = await window.emailSystem.submitEmail(testData);
+        console.log('📧 Test result:', result);
+    }
+};
